@@ -1,0 +1,34 @@
+/*
+ * Set generic link styles
+ *
+ * %link is a placeholder selector:
+ * https://sass-lang.com/documentation/style-rules/placeholder-selectors
+ */
+
+%link {
+	text-decoration-skip-ink: auto;
+	color: var(--color--link);
+	transition: $transition-color;
+	text-decoration: underline;
+
+	&:hover {
+		color: var(--color--link--hover);
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: 2px solid var(--color--focus-ring);
+		outline-offset: 2px;
+	}
+
+	&:active {
+		filter: brightness(0.9);
+	}
+}
+
+/*
+ * Style a elements that don't have a class as generic links.
+ */
+a:where(:not([class])) {
+	@extend %link;
+}

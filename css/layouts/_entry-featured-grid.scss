@@ -1,0 +1,32 @@
+/**
+ * Entry Featured and 4x Grid.
+ */
+
+.l-entry-featured-grid {
+	display: grid;
+	gap: 0 var(--spacing--xl);
+	grid-template-rows: repeat(99, auto);
+
+	@include break-tablet {
+		grid-template-columns: 2fr 1fr 1fr;
+	}
+}
+
+/* Make sure the heading is always full width. */
+.l-entry-featured-grid__heading {
+	@include heading-m;
+	grid-column: 1/-1;
+	margin-block-end: var(--f-spacing--s);
+}
+
+/* Featured grid item which is the first item. */
+.l-entry-featured-grid__item:first-of-type {
+	@include break-tablet {
+		grid-row: 2/-1;
+		margin-block-end: 0;
+	}
+}
+
+.l-entry-featured-grid__item:not(:last-of-type) {
+	margin-block-end: var(--f-spacing--l);
+}

@@ -1,0 +1,35 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "2.0.0-alpha",
+	"name": "gabriel-detassigny/curated-content",
+	"title": "Curated Content",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "list-view",
+	"description": "Dynamic block where you can display content from many sources in different layouts.",
+	"keywords": [
+		"content",
+		"curated",
+		"custom loop",
+		"query",
+		"users",
+		"remote content"
+	],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"customClassName": true,
+		"html": true,
+		"reusable": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"attributes": {
+
+	},
+	"editorScript": "file:./editor.js",
+	"script": "file:./script.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./script.css"
+}

@@ -1,0 +1,29 @@
+.eutopia-theme-components-panel__title-bar {
+	display: flex;
+	align-items: center;
+	margin-block-end: 10px;
+
+	.eutopia-theme-components-panel__label {
+		flex-grow: 1;
+	}
+}
+
+.eutopia-theme-responsive-controls {
+	display: flex;
+	gap: 8px;
+
+	.eutopia-theme-responsive-control {
+		padding: 0;
+		box-shadow: none;
+		color: hsla(200, 0%, 36%, 0.5);
+		height: auto;
+
+		&:hover {
+			color: hsla(200, 0%, 36%, 1);
+		}
+
+		&.active {
+			color: hsl(200, 100%, 36%);
+		}
+	}
+}

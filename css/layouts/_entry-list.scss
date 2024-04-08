@@ -1,0 +1,16 @@
+/**
+ * Entry list.
+ */
+
+.l-entry-list {
+	display: flex;
+	flex-flow: column nowrap;
+
+	> * {
+		padding-block: var(--spacing--l);
+	}
+
+	> * + * {
+		border-block-start: 1px solid var(--color--border);
+	}
+}

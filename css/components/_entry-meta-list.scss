@@ -1,0 +1,42 @@
+.c-entry-meta-list {
+	align-items: center;
+	display: flex;
+	flex-flow: row wrap;
+	font-weight: var(--font-weight--medium);
+	gap: 0 var(--spacing--s);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.c-entry-meta-list--size-l {
+	@include t-body--s;
+}
+
+.c-entry-meta-list--size-m {
+	@include t-body--xs;
+}
+
+.c-entry-meta-list__item {
+	--entry-meta-list-item--color: var(--color--text-tertiary);
+
+	margin: 0;
+	padding: 0;
+	color: var(--entry-meta-list-item--color);
+
+	// Ensure meta color doesn't override inner component color (e.g. c-badge).
+	:where(a, button) {
+		color: var(--entry-meta-list-item--color);
+		text-decoration: none;
+		transition: $transition-color;
+
+		&:hover,
+		&:focus {
+			color: var(--color--text-interactive);
+		}
+	}
+}
+
+.c-entry-meta-list__item--primary {
+	--entry-meta-list-item--color: var(--color--text-secondary);
+}

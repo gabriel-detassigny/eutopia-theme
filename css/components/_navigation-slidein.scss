@@ -1,0 +1,37 @@
+.navigation-slidein {
+	position: fixed;
+	inline-size: 100%;
+	inset-block-start: calc(var(--top-bar--height) + var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
+	inset-block-end: 0;
+	inset-inline-start: 0;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateX(-100vw);
+	background-color: var(--color--neutral--800);
+	min-width: rem(260);
+	transition: $transition-transform, $transition-fade, $transition-shadow;
+
+	&.is-overlaid {
+		visibility: visible;
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.menu {
+		flex-direction: column;
+	}
+}
+
+.close-navigation-slidein {
+	display: none;
+}
+
+.navigation-slidein-is-open {
+	.main-menu-toggle {
+		display: none;
+	}
+
+	.close-navigation-slidein {
+		display: revert;
+	}
+}

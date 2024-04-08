@@ -1,0 +1,25 @@
+/*
+ * Body styling.
+ *
+ * %body is a placeholder selector:
+ * https://sass-lang.com/documentation/style-rules/placeholder-selectors
+ */
+
+%body {
+
+	/*
+	 * Default body colors & background are defined a second time using theme.json
+	 * through referencing --color--background & --color--foreground.
+	 */
+	background-color: var(--color--background);
+	color: var(--color--foreground);
+}
+
+body {
+	@extend %body;
+
+	// Add this class to prevent the body to scroll
+	&.is-not-scrollable {
+		overflow: hidden;
+	}
+}

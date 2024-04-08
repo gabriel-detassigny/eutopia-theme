@@ -1,0 +1,104 @@
+.wp-block-buttons {
+	&.is-vertical {
+		flex-direction: column;
+
+		> .wp-block-button:last-child {
+			margin-block-end: 0;
+		}
+	}
+
+	// Increased specificity to override blocks default margin.
+	> .wp-block-button {
+		display: inline-block;
+		margin: 0;
+	}
+
+	&.is-content-justification-left {
+		justify-content: flex-start;
+
+		&.is-vertical {
+			align-items: flex-start;
+		}
+	}
+
+	&.is-content-justification-center {
+		justify-content: center;
+
+		&.is-vertical {
+			align-items: center;
+		}
+	}
+
+	&.is-content-justification-right {
+		justify-content: flex-end;
+
+		&.is-vertical {
+			align-items: flex-end;
+		}
+	}
+
+	&.is-content-justification-space-between {
+		justify-content: space-between;
+	}
+
+	&[style*="text-decoration"] {
+		.wp-block-button,
+		.wp-block-button__link {
+			text-decoration: inherit;
+		}
+	}
+
+	&.has-custom-font-size {
+		.wp-block-button__link {
+			font-size: inherit;
+		}
+	}
+}
+
+@include block-editor-only {
+	.wp-block-buttons {
+		// Override editor auto block margins for button as well as
+		// the block appender.
+		> .wp-block {
+			margin: 0;
+		}
+
+		// Specificity needed in some themes to override editor auto block
+		// margins for the button.
+		> .wp-block-button.wp-block-button.wp-block-button.wp-block-button.wp-block-button {
+			margin: 0;
+		}
+
+		> .block-list-appender {
+			display: inline-flex;
+			align-items: center;
+		}
+
+		&.is-vertical {
+			> .block-list-appender .block-list-appender__toggle {
+				justify-content: flex-start;
+			}
+		}
+
+		> .wp-block-button {
+			&:focus {
+				box-shadow: none;
+			}
+		}
+
+		.editor-styles-wrapper &.has-custom-font-size {
+			.wp-block-button__link {
+				font-size: inherit;
+			}
+		}
+	}
+
+	.wp-block[data-align="center"] > .wp-block-buttons {
+		align-items: center;
+		justify-content: center;
+	}
+
+	.wp-block[data-align="right"] > .wp-block-buttons {
+		justify-content: flex-end;
+	}
+}

@@ -1,0 +1,204 @@
+body {
+	font-family: var(--font-family--primary);
+	font-size: var(--font-size--normal);
+	line-height: var(--line-height--normal);
+}
+
+/**
+ * Headings.
+ *
+ * Apply here responsive overrides when clamp requires fixed adjustments.
+ */
+
+h1,
+.h1 {
+	@include heading-2xl;
+	margin-block: 0 var(--f-spacing--l);
+}
+
+h2,
+.h2 {
+	@include heading-xl;
+	margin-block: 0 var(--f-spacing--m);
+}
+
+h3,
+.h3 {
+	@include heading-l;
+	margin-block: 0 var(--f-spacing--m);
+}
+
+h4,
+.h4 {
+	@include heading-m;
+	margin-block: 0 var(--f-spacing--m);
+}
+
+h5,
+.h5 {
+	@include heading-s;
+	margin-block: 0 var(--f-spacing--s);
+}
+
+h6,
+.h6 {
+	@include heading-xs;
+	margin-block: 0 var(--f-spacing--s);
+}
+
+.t-heading {
+	&:where(a),
+	a {
+		color: var(--color--text-primary);
+		text-decoration: none;
+		transition: $transition-color;
+
+		&:hover,
+		&:focus {
+			color: var(--color--text-interactive);
+		}
+	}
+}
+
+.t-heading--hero {
+	@include heading-hero;
+}
+
+.t-heading--2xl {
+	@include heading-2xl;
+}
+
+.t-heading--xl {
+	@include heading-xl;
+}
+
+.t-heading--l {
+	@include heading-l;
+}
+
+.t-heading--m {
+	@include heading-m;
+}
+
+.t-heading--s {
+	@include heading-s;
+}
+
+.t-heading--xs {
+	@include heading-xs;
+}
+
+
+/**
+ * Body Copy
+ *
+ * Use these classes for UI creation
+ */
+.t-body {
+	@include t-body;
+}
+
+.t-body--l {
+	@include t-body--l;
+}
+
+.t-body--l-semibold {
+	font-weight: var(--font-weight--semibold);
+
+	@include t-body--l;
+}
+
+.t-body--m {
+	@include t-body--m;
+}
+
+.t-body--m-medium {
+	font-weight: var(--font-weight--medium);
+
+	@include t-body--m;
+}
+
+.t-body--m-semibold {
+	font-weight: var(--font-weight--semibold);
+
+	@include t-body--m;
+}
+
+.t-body--s {
+	@include t-body--s;
+}
+
+.t-body--s-medium {
+	font-weight: var(--font-weight--medium);
+
+	@include t-body--s;
+}
+
+.t-body--s-semibold {
+	font-weight: var(--font-weight--semibold);
+
+	@include t-body--s;
+}
+
+.t-body--xs {
+	@include t-body--xs;
+}
+
+.t-body--xs-medium {
+	font-weight: var(--font-weight--medium);
+
+	@include t-body--xs;
+}
+
+.t-body--xs-bold {
+	font-weight: var(--font-weight--semibold);
+
+	@include t-body--xs;
+}
+
+/**
+ * Text clamp utilities.
+ */
+.t-clamp {
+	@include t-clamp();
+}
+
+.t-clamp--1-line {
+	--t-clamp--lines: 1;
+}
+
+.t-clamp--2-lines {
+	--t-clamp--lines: 2;
+}
+
+.t-clamp--3-lines {
+	--t-clamp--lines: 3;
+}
+
+.t-clamp--4-lines {
+	--t-clamp--lines: 4;
+}
+
+/**
+ * Form Inputs.
+ *
+ * This mixin is used inside /css/src/elements/_form.scss
+ */
+
+@mixin t-input--lg {
+	line-height: var(--line-height--xs);
+	font-weight: var(--font-weight--regular);
+	font-size: var(--f-font-size--l);
+}
+
+@mixin t-input--md {
+	line-height: var(--line-height--xs);
+	font-weight: var(--font-weight--regular);
+	font-size: var(--f-font-size--m);
+}
+
+@mixin t-input--sm {
+	line-height: var(--line-height--xs);
+	font-weight: var(--font-weight--semibold);
+	font-size: var(--font-size--s);
+}

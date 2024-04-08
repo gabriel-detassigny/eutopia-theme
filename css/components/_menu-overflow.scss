@@ -1,0 +1,52 @@
+#toggle-overflow-menu {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-end: calc(var(--spacing--s) * -1);
+	height: 100%;
+	color: var(--color--neutral--200);
+
+	&:hover,
+	&:focus {
+		color: var(--color--neutral--200);
+		text-decoration: none;
+	}
+
+	&:active {
+		filter: brightness(0.9);
+	}
+
+	&.is-hidden {
+		display: none;
+	}
+
+	&::after {
+		display: block;
+		padding: var(--spacing--s);
+		content: "\22EF";
+	}
+}
+
+#overflow-menu {
+	@include submenu-dropdown;
+	list-style: none;
+	position: absolute;
+	inset-block-start: 100%;
+	inset-inline-end: calc(var(--spacing--s) * -1);
+	inset-inline-start: auto;
+	visibility: visible;
+	opacity: 1;
+	display: block;
+
+	li {
+		display: block;
+
+		a {
+			padding: var(--spacing--s);
+			display: block;
+		}
+	}
+
+	&.is-hidden {
+		display: none;
+	}
+}

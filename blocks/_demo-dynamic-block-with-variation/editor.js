@@ -1,0 +1,17 @@
+/**
+ * WordPress dependencies
+ */
+import { registerBlockType } from '@wordpress/blocks';
+
+/**
+ * Internal dependencies
+ */
+import metadata from './block.json';
+import Edit from './js/edit';
+
+registerBlockType(
+	metadata.name,
+	{
+		edit: Edit,
+	}
+);

@@ -1,0 +1,94 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "gabriel-detassigny/wp-hero-block-template",
+	"title": "WP Block Template Title",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "smiley",
+	"description": "Block template description.",
+	"keywords": [ "hero", "cover" ],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"html": false,
+		"align": [ "full" ],
+		"color":  {
+			"background": true,
+			"gradients": true,
+			"text": true
+		}
+	},
+	"attributes": {
+		"style": {
+			"type": "object"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "background"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "foreground"
+		},
+		"overlayColor": {
+			"type": "string"
+		},
+		"customOverlayColor": {
+			"type": "string"
+		},
+		"overlayBackgroundColor": {
+			"type": "string"
+		},
+		"customOverlayBackgroundColor": {
+			"type": "string"
+		},
+		"overlayBackgroundGradient": {
+			"type": "string",
+			"default": "linear-fade-out"
+		},
+		"customOverlayBackgroundGradient": {
+			"type": "string"
+		},
+		"dimRatio": {
+			"type": "number",
+			"default": 70
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"focalPoint": {
+			"type": "object",
+			"default": {
+				"x": "0.5",
+				"y": "0.5"
+			}
+		},
+		"layout": {
+			"type": "string",
+			"default": "50-50",
+			"enum": [ "full-width", "50-50" ]
+		},
+		"heading": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"meta": {
+			"type": "string"
+		},
+		"linkUrl": {
+			"type": "string"
+		}
+	},
+	"editorScript": "file:./editor.js",
+	"editorStyle": "file:./editor.css",
+	"script": "file:./script.js",
+	"style": "file:./script.css",
+	"render": "file:./template.php"
+}

@@ -1,0 +1,50 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "gabriel-detassigny/wp-static-block-template",
+	"title": "WP Static Block Template Title",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "smiley",
+	"description": "Block template description.",
+	"keywords": [],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"customClassName": true,
+		"html": false,
+		"anchor": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "WP Block Template Title",
+			"source": "text",
+			"selector": "h2"
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#000"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f6f6f6"
+		},
+		"hasDropShadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"dropShadowColor": {
+			"type": "string",
+			"default": "#000"
+		},
+		"hasBlockError": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"editorScript": "file:./editor.js"
+}

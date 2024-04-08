@@ -1,0 +1,167 @@
+@use "sass:math";
+
+// The following is a temporary override until flex layout supports
+// an align items setting of normal.
+figure.wp-block-gallery.has-nested-images {
+	align-items: normal;
+}
+
+// Styles for current version of gallery block.
+.wp-block-gallery.has-nested-images {
+	// Need bogus :not(#individual-image) to override long :not()
+	// specificity chain on default image block on front end.
+	figure.wp-block-image:not(#individual-image) {
+		inline-size: calc(50% - (var(--wp--style--unstable-gallery-gap, #{rem(16)}) / 2));
+		margin: 0;
+	}
+
+	figure.wp-block-image {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		position: relative;
+		flex-direction: column;
+		max-inline-size: 100%;
+		// Prevents theme.json and global styles borders that apply to the outer
+		// wrapper from incorrectly enlarging gallery images to a point they
+		// result in a single column gallery.
+		box-sizing: border-box;
+
+		> div,
+		> a {
+			margin: 0;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+
+		img {
+			display: block;
+			block-size: auto;
+			// Ensure max-inline-size is not overridden on the img
+			// when the parent gallery has wide or full alignment.
+			// stylelint-disable-next-line declaration-no-important
+			max-inline-size: 100% !important;
+			inline-size: auto;
+		}
+
+		figcaption {
+			background: linear-gradient(0deg, rgba(#000, 0.7) 0, rgba(#000, 0.3) 70%, transparent);
+			position: absolute;
+			inset-inline-start: 0;
+			inset-block-end: 0;
+			color: #fff;
+			font-size: rem(13);
+			margin-block-end: 0;
+			max-block-size: 60%;
+			overflow: auto;
+			padding: 0 8px 8px;
+			text-align: center;
+			inline-size: 100%;
+			box-sizing: border-box;
+
+			img {
+				display: inline;
+			}
+
+			a {
+				color: inherit;
+			}
+		}
+
+		&.has-custom-border img {
+			box-sizing: border-box;
+		}
+
+		&.is-style-rounded,
+		&.has-custom-border {
+			> div,
+			> a {
+				flex: 1 1 auto;
+			}
+
+			figcaption {
+				flex: initial;
+				background: none;
+				color: inherit;
+				margin: 0;
+				padding: 10px 10px 9px;
+				position: relative;
+			}
+		}
+	}
+
+	figcaption {
+		flex-grow: 1;
+		flex-basis: 100%;
+		text-align: center;
+	}
+
+	// Non cropped images.
+	&:not(.is-cropped) {
+		figure.wp-block-image:not(#individual-image) {
+			margin-block: 0 auto;
+		}
+	}
+
+	// Cropped Images.
+	&.is-cropped figure.wp-block-image:not(#individual-image) {
+		align-self: inherit;
+
+		> div:not(.components-drop-zone),
+		> a {
+			display: flex;
+		}
+
+		a,
+		img {
+			inline-size: 100%;
+			flex: 1 0 0%;
+			block-size: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&.columns-1 figure.wp-block-image:not(#individual-image) {
+		inline-size: 100%;
+	}
+
+	// Beyond mobile viewports, we allow up to 8 columns.
+	@include break-tablet {
+		@for $i from 3 through 8 {
+			&.columns-#{ $i } figure.wp-block-image:not(#individual-image) {
+				inline-size: calc(#{math.div(100%, $i)} - (var(--wp--style--unstable-gallery-gap, #{rem(16)}) * #{math.div($i - 1, $i)}));
+			}
+		}
+
+		// If number of columns not explicitly set default to 3 columns if 3 or
+		// more images.
+		&.columns-default {
+			figure.wp-block-image:not(#individual-image) {
+				inline-size: calc(33.33% - (var(--wp--style--unstable-gallery-gap, 16px) * #{math.div(2, 3)}));
+			}
+
+			// If only 2 child images use 2 columns.
+			figure.wp-block-image:not(#individual-image):first-child:nth-last-child(2),
+			figure.wp-block-image:not(#individual-image):first-child:nth-last-child(2) ~ figure.wp-block-image:not(#individual-image) {
+				inline-size: calc(50% - (var(--wp--style--unstable-gallery-gap, 16px) * 0.5));
+			}
+
+			// For a single image set to 100%.
+			figure.wp-block-image:not(#individual-image):first-child:nth-last-child(1) {
+				inline-size: 100%;
+			}
+		}
+	}
+
+	// Apply max-inline-size to floated items that have no intrinsic width.
+	&.alignleft,
+	&.alignright {
+		max-inline-size: calc(var(--layout--content-size) * 0.5);
+		inline-size: 100%;
+	}
+
+	// If the gallery is centered, center the content inside as well.
+	&.aligncenter {
+		justify-content: center;
+	}
+}

@@ -1,0 +1,16 @@
+.wp-block-separator {
+	width: 100%;
+	border-block: 1px solid currentcolor;
+	// Default, thin style, is stored in theme.scss so it can be opted out of
+
+	// Unset the left and right borders by default, otherwise some browsers
+	// will render them as "inset".
+	border-inline: none;
+}
+
+@include block-editor-only {
+	.block-editor-block-list__block[data-type="core/separator"] {
+		// Prevent margin collapsing so the area to select the separator is bigger.
+		padding-block: 0.1px;
+	}
+}

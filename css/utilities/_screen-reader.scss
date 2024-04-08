@@ -1,0 +1,37 @@
+// Hide text visually that is primarily needed for screen reader users
+
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	// stylelint-disable declaration-no-important
+	position: absolute !important;
+	word-wrap: normal !important;
+	// stylelint-enable declaration-no-important
+}
+
+// Display a nice box when the skip link has the focus
+.skip-link:focus {
+	background-color: #eee; // Feel free the adapt the color to the theme.
+	// stylelint-disable declaration-no-important
+	clip: auto !important;
+	// stylelint-enable declaration-no-important
+	clip-path: none;
+	color: var(--color--foreground);
+	display: block;
+	font-size: var(--font-size--normal);
+	height: auto;
+	inset-inline-start: 5px;
+	inset-block-start: 5px;
+	line-height: normal;
+	padding: var(--spacing--s);
+	text-decoration: none;
+	width: auto;
+	z-index: 100000;
+}

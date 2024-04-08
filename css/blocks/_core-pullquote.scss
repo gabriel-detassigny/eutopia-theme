@@ -1,0 +1,58 @@
+/**
+ * style.scss
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/pullquote/style.scss
+ */
+.wp-block-pullquote {
+	margin-block-end: 1em;
+	padding-block: 3em;
+	text-align: center; // Default text-alignment where the `textAlign` attribute value isn't specified.
+	overflow-wrap: break-word; // Break long strings of text without spaces so they don't overflow the block.
+	box-sizing: border-box;
+
+	p,
+	blockquote,
+	cite {
+		color: inherit;
+	}
+
+	&.alignleft,
+	&.alignright {
+		max-inline-size: calc(var(--layout--content-size) * 0.5);
+	}
+
+	cite,
+	footer {
+		position: relative;
+	}
+
+	.has-text-color a {
+		color: inherit;
+	}
+}
+
+// Ensure that we are reasonably specific to override theme defaults.
+.wp-block-pullquote.has-text-align-left blockquote {
+	text-align: start;
+}
+
+// Ensure that we are reasonably specific to override theme defaults.
+.wp-block-pullquote.has-text-align-right blockquote {
+	text-align: end;
+}
+
+.wp-block-pullquote cite {
+	color: inherit;
+}
+
+/**
+ * editor.scss
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/pullquote/editor.scss
+ */
+@include block-editor-only {
+	.wp-block-pullquote .wp-block-pullquote__citation {
+		color: inherit;
+	}
+}
+

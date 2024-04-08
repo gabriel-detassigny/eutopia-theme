@@ -1,0 +1,123 @@
+/*
+ * Footer
+ */
+
+.site-footer {
+	margin-block-start: var(--spacing--3xl);
+}
+
+.site-footer__container {
+	@include container;
+
+	display: grid;
+	gap: var(--gap);
+	padding-block-end: var(--spacing--xl);
+	border-block-start: rem(1) solid var(--color--border);
+
+	@include break-desktop {
+		padding-block-end: var(--spacing--3xl);
+		grid-template-areas: "meta navigation";
+		grid-template-columns: 1fr 1fr;
+	}
+
+	> * {
+		margin-block-start: var(--spacing--xl);
+
+		@include break-desktop {
+			margin-block-start: var(--spacing--3xl);
+		}
+	}
+}
+
+/* Site Footer Meta */
+.site-footer__meta {
+	@include break-desktop {
+		grid-area: meta;
+	}
+}
+
+.site-footer__branding {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing--m);
+	font-weight: var(--font-weight--medium);
+	margin-block-end: var(--spacing--3xl);
+
+	a {
+		color: var(--color--foreground);
+		text-decoration: none;
+	}
+}
+
+.site-footer__social {
+	&-header {
+		font-weight: var(--font-weight--bold);
+		margin-block-end: var(--spacing--m);
+	}
+
+	.menu {
+		gap: var(--spacing--m);
+		align-items: center;
+	}
+
+	.menu-item a {
+		--color--icon: var(--color--foreground);
+		display: flex;
+		padding: 0;
+		transition: $transition-color;
+
+		&:hover,
+		&:focus {
+			--color--icon: var(--color--link--hover);
+		}
+	}
+}
+
+/* Site Footer Menu */
+.site-footer__navigation {
+	display: grid;
+	inline-size: 100%;
+	gap: var(--gap);
+
+	@include break-tablet {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include break-desktop {
+		grid-area: navigation;
+	}
+}
+
+.site-footer__menu {
+	.widget-title {
+		@include heading-xs;
+		margin-block-end: var(--f-spacing--s);
+	}
+
+	.menu {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.menu-item {
+		display: block;
+	}
+
+	.menu-item ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.menu-item a {
+		color: var(--color--foreground);
+		display: inline-block;
+		padding-block: var(--spacing--2xs);
+		padding-inline: 0;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

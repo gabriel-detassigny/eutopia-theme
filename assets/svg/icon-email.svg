@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon-email" viewBox="0 0 20 20" fill="none">
+	<path fill-rule="evenodd" d="M3.846 4.615a.902.902 0 0 0-.897.898v9.23c0 .493.405.898.897.898h12.308a.902.902 0 0 0 .897-.898v-9.23a.902.902 0 0 0-.897-.898H3.846Zm-2.18.898c0-1.2.98-2.18 2.18-2.18h12.308c1.2 0 2.18.98 2.18 2.18v9.23c0 1.2-.98 2.18-2.18 2.18H3.846c-1.2 0-2.18-.98-2.18-2.18v-9.23Z" clip-rule="evenodd" fill="var(--color--icon, currentcolor)" />
+	<path fill-rule="evenodd" d="M1.782 5.145a.641.641 0 0 1 .893-.157L10 10.115l7.325-5.127a.641.641 0 1 1 .735 1.05l-7.693 5.384a.641.641 0 0 1-.735 0L1.94 6.038a.641.641 0 0 1-.158-.893Z" clip-rule="evenodd" fill="var(--color--icon, currentcolor)" />
+</svg>

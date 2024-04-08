@@ -1,0 +1,22 @@
+:root {
+	// Usage of Pixels unit is intentional.
+	// If the top bar is not used,
+	// Set this value to 0.
+	// The value is used to set the search box.
+	--top-bar--height: 80px;
+}
+
+.top-bar {
+	background-color: var(--color--background--alt);
+	border-block-end: 1px solid var(--color--border);
+	block-size: var(--top-bar--height);
+}
+
+.top-bar__container {
+	@include container;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-block: var(--spacing--m);
+}

@@ -1,0 +1,8 @@
+// Enqueue :root variables (referenced in theme.json) as a separate stylesheet
+// because add_editor_style() wraps everything in a class selector breaking
+// the variable definitions.
+
+$is-block-editor: true;
+
+@import "tools";
+@import "utilities/css-variables";

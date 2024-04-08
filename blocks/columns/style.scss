@@ -1,0 +1,19 @@
+@import "../../css/tools/index";
+
+.c-columns--two-columns-two-thirds-one-third {
+	@include break-tablet {
+		--template-columns: 1fr 33.33%;
+	}
+}
+
+.c-columns--two-columns-one-third-two-thirds {
+	@include break-tablet {
+		--template-columns: 33.33% 1fr;
+	}
+}
+
+.c-columns--three-columns-wider-center {
+	@include break-tablet {
+		--template-columns: 0.5fr 1fr 0.5fr;
+	}
+}

@@ -1,0 +1,19 @@
+/**
+ * Self-hosted web fonts.
+ *
+ * To self-host Google Fonts, use https://gwfh.mranftl.com/fonts
+ * To subset Fonts, use https://everythingfonts.com/subsetter
+ */
+
+/* Example template:
+@font-face {
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src:
+		local("Open Sans"),
+		asset("font/open-sans-v34-latin-regular.woff2") format("woff2"),
+		asset("font/open-sans-v34-latin-regular.woff") format("woff");
+}
+*/

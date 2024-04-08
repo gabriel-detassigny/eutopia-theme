@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "gabriel-detassigny/demo-acf-carousel",
+	"title": "DEMO Carousel",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "no",
+	"description": "A custom carousel block.",
+	"keywords": [
+		"testimonial",
+		"quote"
+	],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"customClassName": true,
+		"html": false,
+		"reusable": false
+	},
+	"script": "file:./script.js",
+	"viewScript": "file:./view.js",
+	"editorScript": "file:./editor.js",
+	"style": "file:./script.css",
+	"editorStyle": "file:./editor.css",
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "template.php"
+	}
+}

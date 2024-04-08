@@ -1,0 +1,8 @@
+<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	<path d="M3 16h9-9Z" fill="var(--color--icon, currentcolor)"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M3 12a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1Z" fill="var(--color--icon, currentcolor)"/>
+	<path d="M4 7h16H4Z" fill="var(--color--icon, currentcolor)"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M3 7a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1Z" fill="var(--color--icon, currentcolor)"/>
+	<path d="M4 17h16H4Z" fill="var(--color--icon, currentcolor)"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M3 17a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1Z" fill="var(--color--icon, currentcolor)"/>
+</svg>

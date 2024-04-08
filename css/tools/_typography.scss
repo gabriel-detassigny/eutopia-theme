@@ -1,0 +1,255 @@
+/**
+ * Typography mixins
+ *
+ * This file is an unique place that controls the typography variables.
+ * Then the mixins or the classes will be used on the right location,
+ * to create the UI.
+ */
+
+/**
+ * Headings.
+ *
+ * Apply here responsive overrides when clamp requires fixed adjustments.
+ */
+
+@mixin heading-hero {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-hero--font-size);
+	line-height: var(--heading-hero--line-height);
+	font-weight: var(--font-weight--bold);
+	letter-spacing: var(--heading-hero--letter-spacing);
+	margin-block-start: 0;
+	margin-block-end: var(--f-spacing--l);
+}
+
+@mixin heading-2xl {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-2xl--font-size);
+	line-height: var(--heading-2xl--line-height);
+	font-weight: var(--font-weight--bold);
+	letter-spacing: var(--heading-2xl--letter-spacing);
+}
+
+@mixin heading-xl {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-xl--font-size);
+	line-height: var(--heading-xl--line-height);
+	font-weight: var(--font-weight--bold);
+	letter-spacing: var(--heading-xl--letter-spacing);
+}
+
+@mixin heading-l {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-l--font-size);
+	line-height: var(--heading-l--line-height);
+	font-weight: var(--font-weight--semibold);
+	letter-spacing: var(--heading-l--letter-spacing);
+}
+
+@mixin heading-m {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-m--font-size);
+	line-height: var(--heading-m--line-height);
+	font-weight: var(--font-weight--semibold);
+	letter-spacing: var(--heading-m--letter-spacing);
+}
+
+@mixin heading-s {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-s--font-size);
+	line-height: var(--heading-s--line-height);
+	font-weight: var(--font-weight--semibold);
+	letter-spacing: var(--heading-xs--letter-spacing);
+}
+
+@mixin heading-xs {
+	font-family: var(--font-family--secondary);
+	font-size: var(--heading-xs--font-size);
+	line-height: var(--heading-xs--line-height);
+	font-weight: var(--font-weight--semibold);
+	letter-spacing: var(--heading-xs--letter-spacing);
+}
+
+/*
+ * Standard typography (including p) inherited.
+ * See --p--font-size & --p--line-height variables
+ */
+@mixin p {
+	margin-block-start: 0;
+	margin-block-end: var(--f-spacing--s);
+}
+
+/**
+ * Sub Headings.
+ */
+
+@mixin t-subheading {
+	font-family: var(--font-family--secondary);
+	line-height: var(--line-height--s);
+	font-weight: var(--font-weight--semibold);
+	letter-spacing: var(--letter-spacing--m);
+	margin-block-start: 0;
+	text-transform: uppercase;
+}
+
+@mixin t-subheading--l {
+	font-size: var(--f-font-size--m);
+
+	@include t-subheading;
+}
+
+@mixin t-subheading--m {
+	font-size: var(--f-font-size--s);
+
+	@include t-subheading;
+}
+
+@mixin t-subheading--s {
+	font-size: var(--f-font-size--xs);
+	letter-spacing: var(--letter-spacing--m);
+
+	@include t-subheading;
+}
+
+/**
+ * Body Copy.
+ */
+@mixin t-body {
+	font-family: var(--font-family--primary);
+}
+
+@mixin t-body--l {
+	font-size: var(--f-font-size--l);
+	line-height: var(--line-height--xl);
+}
+
+@mixin t-body--m {
+	font-size: var(--f-font-size--m);
+	line-height: var(--line-height--l);
+}
+
+@mixin t-body--s {
+	font-size: var(--f-font-size--s);
+	line-height: var(--line-height--l);
+}
+
+@mixin t-body--xs {
+	font-size: var(--f-font-size--xs);
+	line-height: var(--line-height--m);
+	letter-spacing: var(--letter-spacing--s);
+}
+
+/**
+ * Links.
+ */
+
+@mixin t-link--l {
+	font-size: var(--f-font-size--l);
+	line-height: var(--line-height--s);
+	font-weight: var(--font-weight--semibold);
+}
+
+@mixin t-link--m {
+	font-size: var(--f-font-size--m);
+	line-height: var(--line-height--s);
+	font-weight: var(--font-weight--semibold);
+}
+
+@mixin t-link--s {
+	font-size: var(--f-font-size--s);
+	line-height: var(--line-height--none);
+	font-weight: var(--font-weight--semibold);
+}
+
+/**
+ * Blockquote.
+ *
+ * This mixin is used inside /css/src/blocks/_core-quote.scss
+ */
+
+@mixin t-blockquote--l {
+	font-size: var(--f-font-size--2xlarge);
+	line-height: var(--line-height--m);
+	font-style: italic;
+}
+
+@mixin t-blockquote--m {
+	font-size: var(--f-font-size--xl);
+	line-height: var(--line-height--l);
+	font-style: italic;
+}
+
+/**
+ * Form Inputs.
+ *
+ * This mixin is used inside /css/src/elements/_form.scss
+ */
+
+@mixin t-input--l {
+	font-size: var(--f-font-size--l);
+	line-height: var(--line-height--xs);
+}
+
+@mixin t-input--m {
+	font-size: var(--f-font-size--m);
+	line-height: var(--line-height--xs);
+}
+
+@mixin t-input--s {
+	font-size: var(--font-size--s);
+	line-height: var(--line-height--xs);
+}
+
+/**
+ * Form Label.
+ *
+ * This mixin is used inside /css/src/elements/_form.scss
+ */
+
+@mixin t-label {
+	font-size: var(--f-font-size--s);
+	line-height: var(--line-height--xs);
+	font-weight: var(--font-weight--semibold);
+	letter-spacing: var(--letter-spacing--s);
+}
+
+/**
+ * Buttons.
+ *
+ * This mixin is used inside /css/src/elements/_buttons.scss
+ */
+
+@mixin t-button {
+	line-height: var(--line-height--none);
+	font-weight: var(--font-weight--semibold);
+}
+
+@mixin t-button--l {
+	font-size: var(--font-size--l);
+}
+
+@mixin t-button--m {
+	font-size: var(--font-size--m);
+}
+
+@mixin t-button--s {
+	font-size: var(--font-size--s);
+	letter-spacing: var(--letter-spacing--s);
+}
+
+@mixin t-button--xs {
+	font-size: var(--font-size--xs);
+	letter-spacing: var(--letter-spacing--s);
+}
+
+/**
+ * Text clamp utility.
+ */
+
+@mixin t-clamp() {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: var(--t-clamp--lines, 3);
+}

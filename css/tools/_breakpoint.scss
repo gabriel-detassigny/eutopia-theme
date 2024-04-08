@@ -1,0 +1,38 @@
+/*
+ * BREAKPOINT MIXINS
+ *
+ * Syntactic sugar for breakpoints.
+ *
+ * Usage:
+ * @include break-desktop {
+ */
+
+@mixin break-tablet() {
+	@media (query($breakpoint--tablet)) {
+		@content;
+	}
+}
+
+@mixin break-desktop() {
+	@media (query($breakpoint--desktop)) {
+		@content;
+	}
+}
+
+@mixin break-mobile-only() {
+	@media (query($breakpoint--tablet, max)) {
+		@content;
+	}
+}
+
+@mixin break-mobile-tablet() {
+	@media (query($breakpoint--desktop, max)) {
+		@content;
+	}
+}
+
+@mixin break-wide() {
+	@media (query($breakpoint--wide)) {
+		@content;
+	}
+}

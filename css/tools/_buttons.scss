@@ -1,0 +1,184 @@
+/*
+ * Type variation
+ */
+
+@mixin btn {
+	display: inline-flex;
+	column-gap: rem(10);
+	align-items: center;
+	justify-content: center;
+	padding-block: var(--pad-block, rem(15)); // must do 48px:
+	padding-inline: var(--pad-inline, var(--spacing--m));
+	border: 1px solid var(--border, var(--color--primary));
+	border-radius: var(--border-radius--m);
+	word-break: break-word;
+	text-decoration: none;
+	cursor: pointer;
+	transition: $transition-color, $transition-background;
+
+	&:disabled {
+		pointer-events: none;
+	}
+
+	@include t-button;
+	@include t-button--m;
+}
+
+@mixin btn--primary {
+
+	background-color: var(--bg, var(--color--primary));
+	color: var(--color, var(--color--neutral--800));
+
+	&:hover,
+	&:active,
+	&:focus-visible {
+		--bg: var(--bg-hover, var(--color--primary));
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px var(--color--neutral--700), 0 0 0 5px var(--color--neutral--500);
+		outline: 0;
+	}
+
+	&:disabled {
+		--bg: var(--color--neutral--700); // No hover effect
+		--border: var(--color--neutral--700);
+		--color: var(--color--neutral--500);
+	}
+}
+
+@mixin btn--secondary {
+	--bg: var(--color--neutral--700);
+	--color: var(--color--neutral--200);
+	--border: transparent;
+
+	&:hover,
+	&:active,
+	&:focus-visible {
+		--bg-hover: var(--color--neutral--700);
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px var(--color--neutral--800), 0 0 0 5px var(--color--neutral--600);
+	}
+}
+
+@mixin btn--tertiary {
+	--bg: var(--color--neutral--800);
+	--color: var(--color--neutral--200);
+	--border: var(--color--neutral--400);
+
+	&:hover,
+	&:active,
+	&:focus-visible {
+		--bg-hover: var(--color--neutral--800);
+		--border: var(--color--neutral--300);
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px var(--color--neutral--800), 0 0 0 5px var(--color--neutral--600);
+	}
+}
+
+@mixin btn--ghost {
+	--bg: transparent;
+	--color: var(--color--neutral--200);
+	--border: transparent;
+
+	&:hover,
+	&:active,
+	&:focus-visible {
+		--bg-hover: var(--color--neutral--700);
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px var(--color--neutral--800), 0 0 0 5px var(--color--neutral--700);
+	}
+}
+
+/*
+ * Size variation
+ */
+
+@mixin btn--xs {
+	--pad-inline: var(--spacing--s);
+	padding-block: rem(9);
+
+	@include t-button--xs;
+}
+
+@mixin btn--s {
+	--pad-inline: var(--spacing--s);
+	padding-block: rem(10);
+
+	@include t-button--s;
+}
+
+@mixin btn--l {
+	--pad-inline: var(--spacing--l);
+	padding-block: rem(21);
+	row-gap: var(--spacing--m);
+
+	@include t-button--l;
+}
+
+
+/*
+ * Exception Icon only
+ */
+@mixin btn--icon {
+	padding: 0;
+	min-height: rem(40);
+	min-width: rem(40);
+	line-height: 0; // to remove the space under the SVG
+
+	&:hover {
+		color: var(--color--primary);
+	}
+
+	&:focus-visible {
+		outline: 1px solid var(--color--primary);
+		color: var(--color--primary);
+	}
+
+	svg {
+		width: rem(20);
+		height: rem(20);
+	}
+
+	&.btn--icon-sm svg {
+		width: rem(16);
+		height: rem(16);
+	}
+
+	&:where(.btn--xs) { // where is used to have a specifity of 0
+		min-height: rem(32);
+		min-width: rem(32);
+
+		svg {
+			width: rem(16);
+			height: rem(16);
+		}
+	}
+
+	&:where(.btn--s) {
+		min-height: rem(36);
+		min-width: rem(36);
+	}
+
+	&:where(.btn--l) {
+		min-height: rem(48);
+		min-width: rem(48);
+
+		svg {
+			width: rem(32);
+			height: rem(32);
+		}
+	}
+
+	&:disabled {
+		--bg: none;
+		--border: none;
+		--color: var(--color--neutral--400);
+	}
+}

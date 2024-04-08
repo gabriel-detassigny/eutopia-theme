@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon-rss" viewBox="0 0 20 20" fill="none">
+	<path d="M4.002 18.333a2.335 2.335 0 1 0 0-4.67 2.335 2.335 0 0 0 0 4.67Z" fill="var(--color--icon, currentcolor)"/>
+	<path d="M1.667 1.667v3.03c7.53 0 13.635 6.106 13.635 13.636h3.031c0-9.2-7.466-16.666-16.666-16.666Zm0 6.062v3.032a7.58 7.58 0 0 1 7.572 7.572h3.032A10.6 10.6 0 0 0 1.667 7.73Z" fill="var(--color--icon, currentcolor)"/>
+</svg>

@@ -1,0 +1,158 @@
+:root {
+	// Usage of Pixels unit is intentional.
+	--site-header--height: 48px;
+
+	// Used for site scroll padding
+	--header-sticky--height: var(--site-header--height);
+
+	@include break-tablet {
+		--site-header--height: 70px;
+	}
+}
+
+/*
+ * A CSS custom property for the admin toolbar height:
+ * --wp-admin--admin-bar--height
+ * Since 5.9 - https://bit.ly/wp-59-changes
+ */
+
+.site-header-sentinel {
+	position: absolute;
+	inset-inline-start: -1px;
+	width: 1px;
+	height: var(--site-header--height);
+	margin-block-start: calc(var(--site-header--height) - var(--wp-admin--admin-bar--height, 0px));
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+
+	@include break-tablet {
+		margin-block-start: calc(var(--wp-admin--admin-bar--height, 0px) * -1);
+	}
+}
+
+.site-header {
+	position: relative;
+	z-index: $z-index--site-header;
+	border-block-end: 1px solid var(--color--border);
+	background-color: var(--color--background--alt);
+	height: var(--site-header--height);
+	transition: $transition-shadow;
+
+	// On mobile, only the `is-stuck` classname decides if the header should
+	// get stuck. However, the box shadow applies universally across breakpoints.
+	&.is-stuck {
+		position: sticky;
+		inset-block-start: calc(var(--wp-admin--admin-bar--height, 0px) - 1px);
+		box-shadow: $elevation--raised;
+	}
+
+	// This applies to mobile header only.
+	// We need to factor-in the box shadow to the offset (so that it's not
+	// visible at the top of the screen).
+	&.is-hidden {
+		--offset: calc(var(--site-header--height) * -1.6);
+		transform: translateY(var(--offset));
+	}
+
+	// This applies to mobile header only.
+	&.is-animated {
+		transition: $transition-transform;
+	}
+
+	// On larger breakpoints, the sticky behavior does not have to depend on JS
+	// so we're setting up `position: sticky` upfront.
+	@include break-tablet {
+		position: sticky;
+	}
+}
+
+.site-header__container {
+	@include container;
+
+	display: grid;
+	grid-template-columns: var(--site-header--height) 1fr var(--site-header--height);
+	grid-template-rows: var(--site-header--height);
+	grid-template-areas: "main-menu-toggle branding search-toggle";
+	gap: var(--spacing--s);
+	align-items: center;
+	height: 100%;
+
+	@include break-tablet {
+		grid-template-columns: auto 1fr;
+		grid-template-areas: "branding navigation search-toggle";
+	}
+}
+
+.site-header__branding {
+	grid-area: branding;
+
+	// Limit the logo size to be under the header height.
+	.branding-logo {
+		block-size: calc(var(--site-header--height) - 6px);
+		inline-size: auto;
+	}
+}
+
+.site-header__navigation {
+	grid-area: navigation;
+
+	#site-navigation {
+		position: relative;
+
+		.menu {
+			flex-flow: wrap;
+
+			@include break-tablet {
+				height: calc(var(--font-size--s) * var(--p--line-height) + 2 * var(--spacing--s));
+			}
+		}
+
+		// When the element does not have the class .js-overflow-menu-setup,
+		// we hide the overflow on desktop. This is to prevent the menu from
+		// overflowing before JS kicks in.
+		&:not(.js-overflow-menu-setup) .menu {
+			@include break-tablet {
+				overflow: hidden;
+			}
+		}
+
+		.menu-item {
+			flex-flow: nowrap;
+		}
+	}
+
+	@include break-mobile-only {
+		display: none;
+	}
+}
+
+.site-header__main-menu-toggle {
+	grid-area: main-menu-toggle;
+	width: 100%;
+	height: 100%;
+
+	@include break-tablet {
+		display: none;
+	}
+}
+
+.site-header__search-toggle {
+	grid-area: search-toggle;
+	width: 100%;
+	height: 100%;
+}
+
+.site-header__search-toggle .search-toggle {
+	.search-box-is-open & {
+		display: none;
+	}
+}
+
+.site-header__search-toggle .close-search-toggle {
+	display: none;
+
+	.search-box-is-open & {
+		display: revert;
+	}
+}

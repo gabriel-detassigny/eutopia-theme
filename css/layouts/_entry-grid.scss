@@ -1,0 +1,37 @@
+/**
+ * Entry grid.
+ */
+
+.l-entry-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--l-entry-grid--column-count, 1), minmax(0, 1fr));
+	gap: var(--spacing--l) var(--spacing--m);
+}
+
+.l-entry-grid--2-cols {
+	@include break-tablet {
+		--l-entry-grid--column-count: 2;
+	}
+}
+
+.l-entry-grid--3-cols {
+	@include break-tablet {
+		--l-entry-grid--column-count: 3;
+	}
+}
+
+.l-entry-grid--4-cols {
+	--l-entry-grid--column-count: 2;
+
+	@include break-tablet {
+		--l-entry-grid--column-count: 4;
+	}
+}
+
+.l-entry-grid--6-cols {
+	--l-entry-grid--column-count: 2;
+
+	@include break-tablet {
+		--l-entry-grid--column-count: 6;
+	}
+}

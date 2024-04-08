@@ -1,0 +1,45 @@
+/**
+ * Entry Featured and List.
+ */
+
+.l-entry-featured-list {
+	display: grid;
+	gap: 0 var(--spacing--xl);
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(99, auto);
+
+	@include break-tablet {
+		grid-template-columns: 2fr 1fr;
+	}
+
+	& > &__item:first-child {
+		@include break-tablet {
+			grid-row: 1/-1;
+			grid-column: 1/2;
+		}
+	}
+
+	& > &__item:not(:first-child) {
+		@include break-tablet {
+			grid-column: 2/3;
+		}
+	}
+
+	& > &__item:nth-of-type(n+3) {
+		padding-block: var(--f-spacing--m);
+
+		& + * {
+			border-block-start: 1px solid var(--color--border);
+		}
+	}
+
+	&__item-heading {
+		@include heading-l;
+		margin-block: var(--spacing--xl) var(--spacing--xs);
+
+		@include break-tablet {
+			margin-block-start: 0;
+		}
+	}
+}
+

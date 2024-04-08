@@ -1,0 +1,80 @@
+$is-block-editor: false !default;
+
+// Tools
+// Tools that *must not* produce any CSS output.
+@import "tools/index";
+
+// Elements
+// Core.
+@import "elements/reset";
+@import "elements/webfonts";
+// Tiny, reusable components.
+@import "elements/body";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/typography";
+@import "elements/forms";
+
+// Utility
+// Single class, single job.
+@import "utilities/alignment";
+@import "utilities/block-container";
+@import "utilities/container";
+@import "utilities/css-variables";
+@import "utilities/expose-media-query";
+@import "utilities/flex";
+@import "utilities/grid";
+@import "utilities/screen-reader";
+@import "utilities/stack";
+
+// Blocks
+@import "blocks/core-audio";
+@import "blocks/core-button";
+@import "blocks/core-buttons";
+@import "blocks/core-cover";
+@import "blocks/core-embed";
+@import "blocks/core-gallery";
+@import "blocks/core-group";
+@import "blocks/core-heading";
+@import "blocks/core-image";
+@import "blocks/core-list";
+@import "blocks/core-paragraph";
+@import "blocks/core-pullquote";
+@import "blocks/core-quote";
+@import "blocks/core-separator";
+@import "blocks/core-video";
+
+// Components
+@import "components/badge";
+@import "components/button";
+@import "components/comments";
+@import "components/entry-meta-list";
+@import "components/icons";
+@import "components/image";
+@import "components/main-menu-icons";
+@import "components/menu";
+@import "components/menu-overflow";
+@import "components/navigation-slidein";
+@import "components/post-navigation";
+@import "components/search-box";
+@import "components/search-form";
+@import "components/site-footer";
+@import "components/site-header";
+@import "components/top-bar";
+
+// Layouts
+@import "layouts/entry";
+@import "layouts/entry-featured-list";
+@import "layouts/entry-featured-grid";
+@import "layouts/entry-grid";
+@import "layouts/entry-list";
+@import "layouts/grid-entry";
+@import "layouts/list-entry";
+@import "layouts/search-page";
+@import "layouts/entry-carousel";
+
+/**
+* Vendors
+*/
+@import "swiper/scss";
+@import "swiper/scss/pagination";

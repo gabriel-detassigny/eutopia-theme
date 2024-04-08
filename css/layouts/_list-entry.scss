@@ -1,0 +1,62 @@
+// Size modifiers.
+.l-list-entry--size-l,
+.l-list-entry--size-m {
+	--l-list-entry--media-content-spacing: var(--spacing--l);
+	--l-list-entry--content-inner-spacing: var(--spacing--m);
+	--l-list-entry__media--size: #{rem(88)};
+}
+
+.l-list-entry--size-s {
+	--l-list-entry--media-content-spacing: var(--spacing--l);
+	--l-list-entry--content-inner-spacing: var(--spacing--s);
+	--l-list-entry__media--size: #{rem(64)};
+
+	@include break-tablet {
+		--l-list-entry__media--size: #{rem(88)};
+	}
+}
+
+.l-list-entry--size-xs {
+	--l-list-entry--media-content-spacing: var(--spacing--m);
+	--l-list-entry--content-inner-spacing: var(--spacing--s);
+	--l-list-entry__media--size: #{rem(48)};
+
+	@include break-tablet {
+		--l-list-entry__media--size: #{rem(64)};
+	}
+}
+
+// List entry component.
+.l-list-entry {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: var(--l-list-entry--media-content-spacing, var(--spacing--l));
+
+	> * {
+		margin: 0;
+	}
+}
+
+.l-list-entry--flipped {
+	flex-direction: row-reverse;
+}
+
+// Elements.
+.l-list-entry__media {
+	--size: var(--l-list-entry__media--size, #{rem(88)});
+
+	flex: 0 0 var(--size);
+	height: var(--size);
+}
+
+.l-list-entry__content {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	flex: 1 1 auto;
+	gap: var(--l-list-entry--content-inner-spacing, var(--spacing--m));
+
+	> * {
+		margin: 0;
+	}
+}

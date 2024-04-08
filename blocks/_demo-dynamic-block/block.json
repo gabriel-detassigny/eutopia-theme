@@ -1,0 +1,34 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "gabriel-detassigny/demo-dynamic-block",
+	"title": "DEMO Dynamic Block",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "no",
+	"description": "Basic Dynamic Block",
+	"keywords": [
+		"eutopia-theme",
+		"dynamic"
+	],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"customClassName": true,
+		"html": false,
+		"anchor": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Eutopia Theme"
+		}
+	},
+	"example": {
+		"title": "Eutopia Theme"
+	},
+	"render": "file:./template.php",
+	"script": "file:./script.js",
+	"editorScript": "file:./editor.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./script.css"
+}

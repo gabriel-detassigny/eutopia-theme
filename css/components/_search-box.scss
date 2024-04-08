@@ -1,0 +1,47 @@
+.search-box {
+	position: absolute;
+	inset-inline: 0;
+	inset-block-start: calc(var(--top-bar--height) + var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
+	display: none;
+	background-color: var(--color--neutral--800);
+	padding-block: var(--spacing--l);
+
+	@include break-tablet {
+		padding-block: var(--spacing--xl) var(--spacing--3xl);
+		inset-block-start: 0;
+	}
+
+	&.is-overlaid {
+		display: block;
+
+		@include break-mobile-only {
+			position: absolute;
+		}
+	}
+}
+
+.search-box__top-grid {
+	margin-block-end: var(--f-spacing--m);
+}
+
+.search-box__title {
+	font-size: var(--f-font-size--xl);
+	margin-block-end: 0;
+}
+
+.search-box__close {
+	display: none;
+	color: hsl(224, 12%, 42%); // not availble as color token
+
+	@include break-tablet {
+		display: revert;
+	}
+}
+
+body.search-box-is-open {
+
+	// Remove scrolling on body, as overlay is positioned below the header.
+	@include break-mobile-only {
+		overflow: hidden;
+	}
+}

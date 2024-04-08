@@ -1,0 +1,311 @@
+.wp-block-image {
+	img {
+		display: inline-block;
+		block-size: auto;
+		max-inline-size: 100%;
+		vertical-align: bottom;
+		box-sizing: border-box;
+	}
+
+	&.has-custom-border {
+		img {
+			box-sizing: border-box;
+		}
+	}
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	&.alignfull img,
+	&.alignwide img {
+		block-size: auto;
+		inline-size: 100%;
+	}
+
+	&.alignleft,
+	&.alignright,
+	&.aligncenter,
+	.alignleft,
+	.alignright,
+	.aligncenter {
+		display: table;
+
+		> figcaption {
+			display: table-caption;
+			caption-side: bottom;
+		}
+	}
+
+	.alignleft {
+		float: inline-start;
+		margin-inline: 0 1em;
+		margin-block: 0.5em;
+	}
+
+	.alignright {
+		float: inline-end;
+		margin-inline: 1em 0;
+		margin-block: 0.5em;
+	}
+
+	// This is needed for classic themes where the align class is not on the
+	// container.
+	.aligncenter {
+		margin-inline: auto;
+	}
+
+	// Supply caption styles to images, even if the theme hasn't opted in.
+	// Reason being: the new markup, <figcaptions>, are not likely to be styled
+	// in the majority of existing themes,
+	// so we supply the styles so as to not appear broken or unstyled in those
+	// themes.
+	figcaption {
+		@include caption-style();
+	}
+
+	// Variations
+	&.is-style-rounded img,
+	.is-style-rounded img {
+		// We use an absolute pixel to prevent the oval shape that a value of
+		// 50% would give to rectangular images. A pill-shape is better than
+		// otherwise.
+		border-radius: 9999px;
+	}
+
+	// The following is required to overcome WP Core applying styles that clear
+	// img borders with a higher specificity than those added by the border
+	// block support to provide a default border-style of solid when a border
+	// color or width has been set.
+	:where(.has-border-color) {
+		border-style: solid;
+	}
+
+	:where([style*="border-top-color"]) {
+		border-block-start-style: solid;
+	}
+
+	:where([style*="border-right-color"]) {
+		border-inline-end-style: solid;
+	}
+
+	:where([style*="border-bottom-color"]) {
+		border-block-end-style: solid;
+	}
+
+	:where([style*="border-left-color"]) {
+		border-inline-start-style: solid;
+	}
+
+	:where([style*="border-width"]) {
+		border-style: solid;
+	}
+
+	:where([style*="border-top-width"]) {
+		border-block-start-style: solid;
+	}
+
+	:where([style*="border-right-width"]) {
+		border-inline-end-style: solid;
+	}
+
+	:where([style*="border-bottom-width"]) {
+		border-block-end-style: solid;
+	}
+
+	:where([style*="border-left-width"]) {
+		border-inline-start-style: solid;
+	}
+}
+
+.wp-block-image figure {
+	margin: 0;
+}
+
+@include block-editor-only {
+	// Provide special styling for the placeholder.
+	// @todo: this particular minimal style of placeholder could be
+	// componentized further.
+	.wp-block-image.wp-block-image {
+
+		// Show Placeholder style on-select.
+		&.is-selected .components-placeholder {
+			// Block UI appearance.
+			color: #1e1e1e;
+			background-color: #fff;
+			box-shadow: inset 0 0 0 1px #1e1e1e;
+			border: none;
+
+			// Disable any duotone filter applied in the selected state.
+			filter: none;
+
+			// @todo: this should eventually be overridden by a custom
+			// border-radius set in the inspector.
+			border-radius: var(--border-radius--xs);
+
+			> svg {
+				opacity: 0;
+			}
+
+			.components-placeholder__illustration {
+				display: none;
+			}
+
+			&::before {
+				opacity: 0;
+			}
+		}
+
+		// Remove the transition while we still have a legacy placeholder style.
+		// Otherwise the content jumps between the 1px placeholder border, and
+		// any inherited custom parent border that may get applied when you
+		// deselect.
+		.components-placeholder__label,
+		.components-placeholder__instructions,
+		.components-button {
+			transition: none;
+		}
+	}
+
+	figure.wp-block-image:not(.wp-block) {
+		margin: 0;
+	}
+
+	.wp-block-image {
+		position: relative;
+
+		.is-applying img,
+		&.is-transient img {
+			opacity: 0.3;
+		}
+
+		figcaption img {
+			display: inline;
+		}
+
+		// Shown while image is being uploaded.
+		.components-spinner {
+			position: absolute;
+			inset-block-start: 50%;
+			inset-inline-start: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	// This is necessary for the editor resize handles to accurately work on a
+	// non-floated, non-resized, small image.
+	.wp-block-image .components-resizable-box__container {
+		display: inline-block;
+
+		img {
+			display: block;
+			inline-size: inherit;
+			block-size: inherit;
+		}
+	}
+
+	.block-editor-block-list__block[data-type="core/image"] .block-editor-block-toolbar .block-editor-url-input__button-modal {
+		position: absolute;
+		inset-inline: 0;
+		margin-block: -1px;
+
+		@include break-tablet() {
+			margin: -1px;
+		}
+	}
+
+	[data-align="wide"] > .wp-block-image,
+	[data-align="full"] > .wp-block-image {
+		img {
+			block-size: auto;
+			inline-size: 100%;
+		}
+	}
+
+	.wp-block[data-align="left"],
+	.wp-block[data-align="center"],
+	.wp-block[data-align="right"] {
+		> .wp-block-image {
+			display: table;
+
+			> figcaption {
+				display: table-caption;
+				caption-side: bottom;
+			}
+		}
+	}
+
+	.wp-block[data-align="left"] > .wp-block-image {
+		margin-inline: 0 1em;
+		margin-block: 0.5em;
+	}
+
+	.wp-block[data-align="right"] > .wp-block-image {
+		margin-inline: 1em 0;
+		margin-block: 0.5em;
+	}
+
+	.wp-block[data-align="center"] > .wp-block-image {
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.wp-block-image__crop-area {
+		position: relative;
+		max-inline-size: 100%;
+		inline-size: 100%;
+		overflow: hidden;
+
+		// This removes the border from the img within the image cropper so it
+		// can be applied to the cropper itself. This then allows the image to be
+		// cropped within the visual border providing more accurate editing and
+		// smoother UX.
+		/* stylelint-disable-next-line selector-class-pattern */
+		.reactEasyCrop_Container .reactEasyCrop_Image {
+			border: none;
+		}
+	}
+
+	.wp-block-image__crop-icon {
+		padding-inline: 8px;
+		min-inline-size: 48px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			fill: currentcolor;
+		}
+	}
+
+	.wp-block-image__zoom {
+		.components-popover__content {
+			min-inline-size: 260px;
+			// stylelint-disable-next-line declaration-no-important
+			overflow: visible !important;
+		}
+
+		.components-range-control {
+			flex: 1;
+		}
+
+		.components-base-control__field {
+			display: flex;
+			margin-block-end: 0;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	.wp-block-image__aspect-ratio {
+		block-size: rem(46);
+		margin-block-end: -8px;
+		display: flex;
+		align-items: center;
+
+		.components-button {
+			inline-size: rem(36);
+			padding-inline: 0;
+		}
+	}
+}

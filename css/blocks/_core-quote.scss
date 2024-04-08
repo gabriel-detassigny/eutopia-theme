@@ -1,0 +1,10 @@
+.wp-block-quote {
+	box-sizing: border-box;
+	overflow-wrap: break-word; // Break long strings of text without spaces so they don't overflow the block.
+	margin-inline: 0; // Reset default margin
+	border-inline-start: none; // Remove default border
+}
+
+.wp-block-quote p {
+	@include t-blockquote--l;
+}

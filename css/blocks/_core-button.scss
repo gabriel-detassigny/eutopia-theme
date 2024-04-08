@@ -1,0 +1,141 @@
+$blocks-block__margin: 0.5em;
+
+// Prefer the link selector instead of the regular button classname
+// to support the previous markup in addition to the new one.
+.wp-block-button__link {
+	display: inline-block;
+	text-align: center;
+	border-radius: 0; // Remove default radius added inside the editor
+	word-break: break-word;
+	cursor: pointer;
+	transition: color $transition-color, background-color $transition-background;
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	&.alignright {
+		text-align: end;
+	}
+}
+
+.wp-block-button[style*="text-decoration"] .wp-block-button__link {
+	text-decoration: inherit;
+}
+
+// Increased specificity needed to override margins.
+.wp-block-buttons > .wp-block-button {
+	&.has-custom-width {
+		max-inline-size: none;
+
+		.wp-block-button__link {
+			inline-size: 100%;
+		}
+	}
+
+	&.has-custom-font-size {
+
+		.wp-block-button__link {
+			font-size: inherit;
+		}
+	}
+
+	&.wp-block-button__width-25 {
+		inline-size: calc(25% - (var(--wp--style--block-gap, #{$blocks-block__margin}) * 0.75));
+	}
+
+	&.wp-block-button__width-50 {
+		inline-size: calc(50% - (var(--wp--style--block-gap, #{$blocks-block__margin}) * 0.5));
+	}
+
+	&.wp-block-button__width-75 {
+		inline-size: calc(75% - (var(--wp--style--block-gap, #{$blocks-block__margin}) * 0.25));
+	}
+
+	&.wp-block-button__width-100 {
+		inline-size: 100%;
+		flex-basis: 100%;
+	}
+}
+
+// For vertical buttons, gap is not factored into width calculations.
+.wp-block-buttons.is-vertical > .wp-block-button {
+	&.wp-block-button__width-25 {
+		inline-size: 25%;
+	}
+
+	&.wp-block-button__width-50 {
+		inline-size: 50%;
+	}
+
+	&.wp-block-button__width-75 {
+		inline-size: 75%;
+	}
+}
+
+@include block-editor-only {
+	.wp-block[data-align="center"] > .wp-block-button {
+		text-align: center;
+		margin-inline: auto;
+	}
+
+	.wp-block[data-align="right"] > .wp-block-button {
+		text-align: end;
+	}
+
+	.wp-block-button {
+		position: relative;
+		cursor: text;
+
+		// Add outline to button on focus to indicate focus-state
+		&:focus {
+			box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--wp-admin-theme-color);
+
+			// Windows' High Contrast mode will show this outline, but not the
+			// box-shadow.
+			outline: 2px solid transparent;
+			outline-offset: -2px;
+		}
+
+		// Increase placeholder opacity to meet contrast ratios.
+		&[data-rich-text-placeholder]::after {
+			opacity: 0.8;
+		}
+	}
+
+	.wp-block-button__inline-link {
+		color: #757575;
+		block-size: 0;
+		overflow: hidden;
+		max-inline-size: 290px;
+
+		&-input__suggestions {
+			max-inline-size: 290px;
+		}
+
+		.is-selected & {
+			block-size: auto;
+			overflow: visible;
+		}
+	}
+
+	.wp-button-label__width {
+		.components-button-group {
+			display: block;
+		}
+
+		.components-base-control__field {
+			margin-block-end: 12px;
+		}
+	}
+
+	// Display "table" is used because the button container should only wrap
+	// the content and not takes the full width.
+	div[data-type="core/button"] {
+		display: table;
+	}
+
+	.editor-styles-wrapper .wp-block-button[style*="text-decoration"] .wp-block-button__link {
+		text-decoration: inherit;
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "gabriel-detassigny/demo-details",
+	"title": "DEMO Details",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "no",
+	"description": "Basic Static Block with details HTML Element.",
+	"keywords": [
+		"details",
+		"summary",
+		"collapse",
+		"expand"
+	],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"customClassName": true,
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"summary": {
+			"type": "string"
+		},
+		"summaryTag": {
+			"type": "string",
+			"default": "span"
+		},
+		"content": {
+			"type": "string"
+		},
+		"openDetail": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"summary": "Summary",
+		"content": "Detail content",
+		"openDetail": "true"
+	},
+	"script": "file:./script.js",
+	"editorScript": "file:./editor.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./script.css"
+}

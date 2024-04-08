@@ -1,0 +1,58 @@
+/*
+ * Default overlay backdrop & content
+ *
+ * See
+ * /js/README.md
+ * /js/src/modules/OverlayHelper.js
+ *
+ */
+
+.site-overlay {
+	opacity: 0;
+	transition: $transition-fade;
+}
+
+.site-overlay[data-overlay] {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(11, 19, 40, 0.24);
+	backdrop-filter: blur(4px);
+	z-index: $z-index--overlay;
+	opacity: 1;
+
+	.no-backdrop & {
+		display: none;
+	}
+
+	.search-box-is-open & {
+		@include break-mobile-only {
+			inset-block-start: calc(var(--top-bar--height) + var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
+		}
+	}
+
+	.navigation-slidein-is-open & {
+		inset-block-start: calc(var(--top-bar--height) + var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
+	}
+}
+
+/* Modals transition */
+[aria-modal="true"] {
+	transition: $transition-shadow, $transition-transform;
+}
+
+/*
+ * This class will be added when the overlay is visible
+ * Feel free to add a global animation
+ * or add an animation to the component (ex: .search-box)
+ */
+.is-overlaid {
+	position: fixed;
+	z-index: $z-index--is-overlaid;
+	box-shadow: $elevation--overlay;
+
+	&.is-centered {
+		inset-block-start: 50%;
+		inset-inline-start: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

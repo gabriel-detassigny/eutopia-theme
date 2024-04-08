@@ -1,0 +1,8 @@
+/**
+ * Common container.
+ * Centers the content, and sets the content width.
+ */
+
+.container {
+	@include container;
+}

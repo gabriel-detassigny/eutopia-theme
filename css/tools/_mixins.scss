@@ -1,0 +1,64 @@
+/*
+ * Container
+ *
+ * To be used for centering the content.
+ */
+@mixin container() {
+	--gap: var(--layout--grid--gutter);
+	--width: calc(var(--layout--wide-size) + 2 * var(--gap));
+	inline-size: var(--width);
+	max-inline-size: 100%;
+	padding-inline: var(--gap);
+	margin-inline: auto;
+}
+
+@mixin caption-style() {
+	margin-block: 0.5em 1em;
+}
+
+@mixin placeholder-style() {
+	border-radius: rem(2);
+
+	&::before {
+		content: "";
+		inset: 0;
+		position: absolute;
+		pointer-events: none;
+		background: currentcolor;
+		opacity: 0.1;
+	}
+}
+
+/*
+ * Remove scrollbar.
+ * To be used on overflowing elements controlled with button controls or swipes.
+ */
+@mixin remove-scrollbar() {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/*
+ * EDITOR MIXINS
+ *
+ * Outputting styles specific to the editor, or non-editor.
+ *
+ * Usage:
+ * @include block-editor-only {
+ * @include non-block-editor {
+ */
+@mixin block-editor-only() {
+	@if ( $is-block-editor ) {
+		@content;
+	}
+}
+
+@mixin not-block-editor() {
+	@if ( false == $is-block-editor ) {
+		@content;
+	}
+}

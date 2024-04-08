@@ -1,0 +1,13 @@
+{
+    "title": "JSON schema for additional validation of WordPress block theme global settings and styles",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "settings": {
+        "type": "object",
+        "properties": {
+          "custom": { "not": {}, "errorMessage": "adding custom properties to `settings` is not allowed" }
+        }
+      }
+    }
+}

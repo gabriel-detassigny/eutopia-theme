@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"editorconfig.editorconfig",
+		"davidanson.vscode-markdownlint",
+		"xdebug.php-debug",
+		"bmewburn.vscode-intelephense-client",
+		"swordev.phpstan",
+		"stylelint.vscode-stylelint",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode"
+	]
+}

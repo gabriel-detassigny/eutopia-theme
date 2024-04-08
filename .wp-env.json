@@ -1,0 +1,19 @@
+{
+	"phpVersion": "8.2",
+	"core": "./tools/wordpress",
+	"mappings": {
+		"wp-content/themes/eutopia-theme": ".",
+		"wp-content/plugins": "./tools/wp-content/plugins",
+		"wp-content/uploads": "./tools/wp-content/uploads"
+	},
+	"themes": [
+		"."
+	],
+	"config": {
+		"WORDPRESS_DEBUG": "true",
+		"SCRIPT_DEBUG": "true"
+	},
+	"plugins": [
+		"./tools/wp-content/plugins/advanced-custom-fields-pro"
+	]
+}

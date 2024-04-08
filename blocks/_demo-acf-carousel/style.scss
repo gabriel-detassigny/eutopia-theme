@@ -1,0 +1,23 @@
+/**
+ * Carousel block styles.
+ */
+
+@import "../../node_modules/swiper/swiper-bundle";
+@import "/css/tools";
+
+.wp-block-gabriel-detassigny-demo-acf-carousel {
+	.swiper {
+		@include break-mobile-only {
+			padding-inline: var(--spacing--m);
+		}
+	}
+
+	.swiper-slide {
+		inline-size: 33%;
+		min-inline-size: rem(256);
+	}
+
+	.swiper-slide + .swiper-slide {
+		margin-inline-start: var(--spacing--s);
+	}
+}

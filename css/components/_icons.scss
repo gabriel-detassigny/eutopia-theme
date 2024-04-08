@@ -1,0 +1,57 @@
+/* Define icon sizes. */
+.icon--s {
+	block-size: var(--spacing--s);
+	inline-size: var(--spacing--s);
+}
+
+.icon--m {
+	block-size: var(--spacing--m);
+	inline-size: var(--spacing--m);
+}
+
+.icon--l {
+	block-size: var(--spacing--l);
+	inline-size: var(--spacing--l);
+}
+
+.icon--xl {
+	block-size: var(--spacing--xl);
+	inline-size: var(--spacing--xl);
+}
+
+.icon--social {
+	--transition-time: 265ms;
+	position: relative;
+
+	&::before {
+		content: " ";
+		display: block;
+		transform: scale(1);
+		block-size: 100%;
+		inline-size: 100%;
+		border-radius: var(--border-radius--s);
+		transition: all var(--transition-time) ease-out;
+		background: linear-gradient(45deg, var(--color--accent), var(--color--blue--300));
+	}
+
+	&:hover::before,
+	&:focus-visible::before {
+		transform: scale(0);
+		transition: all var(--transition-time) ease-in;
+	}
+
+	svg {
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		--color--icon: var(--color--neutral--700);
+	}
+
+	&:hover svg,
+	&:focus-visible svg {
+		transform: scale(1.5);
+		background-clip: text;
+		--color--icon: var(--color--accent);
+		transition: all var(--transition-time) ease-in;
+	}
+}

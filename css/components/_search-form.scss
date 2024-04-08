@@ -1,0 +1,67 @@
+.search-form {
+	gap: var(--spacing--s);
+	color: hsl(223, 16%, 43%); // Color used by the SVG icons, not a token one
+}
+
+.search-form__label {
+	border: 1px solid var(--color--neutral--400);
+	border-radius: var(--border-radius--s);
+	background-color: var(--color--background--alt);
+	max-inline-size: rem(1000);
+	padding-inline: var(--spacing--m);
+	gap: var(--spacing--s);
+	width: 100%;
+	block-size: rem(56);
+
+	&:focus-within {
+		box-shadow: 0 0 0 2px var(--color--neutral--700), 0 0 0 5px var(--color--primary);
+	}
+
+	svg {
+		block-size: rem(24);
+		inline-size: rem(24);
+	}
+}
+
+/*
+ * input is added to have a specificity equal to (0, 1, 1)
+ * the same as the default style for input (css/src/elements/_forms.scss)
+ */
+input.search-form__field {
+	flex-grow: 1;
+	padding-inline: 0;
+	width: auto;
+	border: none;
+	box-shadow: none;
+
+	&:focus-visible,
+	&:focus {
+		--border: none;
+		box-shadow: none;
+		outline: none;
+	}
+}
+
+.c-search-form__clear {
+	width: rem(24);
+	height: rem(24);
+
+	/*
+	* Color used by the SVG icons,
+	* overwrite default color of btn--ghost
+	*/
+	color: hsl(223, 16%, 43%);
+
+	&:disabled {
+		opacity: 0.3;
+	}
+}
+
+.search-form__submit {
+	flex-grow: 1; // Take 100%
+
+	@include break-tablet {
+		flex-grow: 0;
+		padding-inline: var(--spacing--l);
+	}
+}

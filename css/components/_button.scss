@@ -1,0 +1,45 @@
+/*
+ * Types variation
+ */
+.btn {
+	@include btn;
+}
+
+.btn--primary {
+	@include btn--primary;
+}
+
+.btn--secondary {
+	@include btn--secondary;
+}
+
+.btn--tertiary {
+	@include btn--tertiary;
+}
+
+
+.btn--ghost {
+	@include btn--ghost;
+}
+
+/*
+ * Size variation.
+ */
+.btn--l {
+	@include btn--l;
+}
+
+.btn--s {
+	@include btn--s;
+}
+
+.btn--xs {
+	@include btn--xs;
+}
+
+/*
+ * Icon only exception
+ */
+.btn--icon {
+	@include btn--icon;
+}

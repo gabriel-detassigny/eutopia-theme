@@ -1,0 +1,26 @@
+<?php
+/**
+ * The sidebar containing the main widget area
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package eutopia_theme
+ */
+
+namespace Eutopia_Theme;
+
+use Eutopia_Theme\Components\Infinite_Scroll;
+use Eutopia_Theme\Components\Sidebar;
+
+if ( Infinite_Scroll::get_instance()?->is_infinite_scroll_page() ) {
+	return;
+}
+
+if ( ! Sidebar::get_instance()?->is_primary_sidebar_active() ) {
+	return;
+}
+?>
+<aside id="secondary" class="primary-sidebar widget-area">
+	<h2 class="screen-reader-text"><?php esc_html_e( 'Asides', 'eutopia-theme' ); ?></h2>
+	<?php Sidebar::get_instance()?->display_primary_sidebar(); ?>
+</aside><!-- #secondary -->

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "gabriel-detassigny/wp-dynamic-block-template",
+	"title": "WP Dynamic Block Template Title",
+	"category": "gabriel-detassigny-blocks",
+	"icon": "smiley",
+	"description": "Block template description.",
+	"keywords": [],
+	"textdomain": "eutopia-theme",
+	"supports": {
+		"customClassName": true,
+		"html": false,
+		"anchor": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "WP Block Template Title"
+		}
+	},
+	"script": "file:./script.js",
+	"editorScript": "file:./editor.js",
+	"style": "file:./script.css",
+	"editorStyle": "file:./editor.css",
+	"render": "file:./template.php"
+}

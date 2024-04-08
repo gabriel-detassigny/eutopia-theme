@@ -1,0 +1,48 @@
+// Skize modifiers.
+.l-grid-entry--size-l {
+	--l-grid-entry--media-content-spacing: var(--spacing--l);
+	--l-grid-entry--content-inner-spacing: var(--spacing--m);
+}
+
+.l-grid-entry--size-m {
+	--l-grid-entry--media-content-spacing: var(--spacing--l);
+	--l-grid-entry--content-inner-spacing: var(--spacing--s);
+}
+
+.l-grid-entry--size-s {
+	--l-grid-entry--media-content-spacing: var(--spacing--m);
+	--l-grid-entry--content-inner-spacing: var(--spacing--s);
+}
+
+.l-grid-entry--size-xs {
+	--l-grid-entry--media-content-spacing: var(--spacing--m);
+	--l-grid-entry--content-inner-spacing: var(--spacing--xs);
+}
+
+// Grid entry component.
+.l-grid-entry {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: var(--l-grid-entry--media-content-spacing, var(--spacing--l));
+
+	> *,
+	p {
+		margin: 0;
+	}
+}
+
+// Elements.
+.l-grid-entry__media {
+	width: 100%;
+}
+
+.l-grid-entry__content {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	gap: var(--l-grid-entry--content-inner-spacing, var(--spacing--s));
+
+	> * {
+		margin: 0;
+	}
+}

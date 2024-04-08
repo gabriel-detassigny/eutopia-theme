@@ -1,0 +1,43 @@
+/**
+ * style.scss
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/audio/style.scss
+ */
+.wp-block-audio {
+	figcaption {
+		@include caption-style();
+	}
+
+	// Show full-width when not aligned.
+	audio {
+		inline-size: 100%;
+
+		// The browser natively applies a 300px inline-size to the audio block.
+		// We restore this as a min-inline-size instead, for alignments.
+		min-inline-size: 300px;
+	}
+}
+
+/**
+ * editor.scss
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/pullquote/editor.scss
+ */
+@include block-editor-only {
+	.wp-block-audio {
+		position: relative;
+
+		&.is-transient audio {
+			opacity: 0.3;
+		}
+
+		// Shown while audio is being uploaded
+		.components-spinner {
+			position: absolute;
+			inset-block-start: 50%;
+			inset-inline-start: 50%;
+			margin-block-start: -9px;
+			margin-inline-start: -9px;
+		}
+	}
+}

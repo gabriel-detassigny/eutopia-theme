@@ -1,0 +1,13 @@
+.main-menu-toggle,
+.close-navigation-slidein,
+[class$="search-toggle"] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+
+	svg {
+		pointer-events: none;
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"extends": [
+		"config:base",
+		"monorepo:babel",
+		"monorepo:wordpress"
+	],
+	"labels": [
+		"dependencies",
+		"Type: Tooling"
+	]
+}

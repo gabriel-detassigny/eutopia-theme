@@ -1,0 +1,179 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"color": {
+			"custom": false,
+			"defaultPalette": false,
+			"defaultGradients": true,
+			"gradients": [
+				{
+					"slug": "linear-fade-out",
+					"gradient": "var(--gradient--linear-fade-out)",
+					"name": "Linear Fade Out"
+				}
+			],
+			"duotone": [],
+			"customDuotone": false,
+			"defaultDuotone": false,
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "var(--color--primary)",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "var(--color--secondary)",
+					"name": "Secondary"
+				},
+				{
+					"slug": "tertiary",
+					"color": "var(--color--tertiary)",
+					"name": "Tertiary"
+				},
+				{
+					"slug": "quaternary",
+					"color": "var(--color--quaternary)",
+					"name": "Quaternary"
+				},
+				{
+					"slug": "quinary",
+					"color": "var(--color--quinary)",
+					"name": "Quinary"
+				},
+				{
+					"slug": "senary",
+					"color": "var(--color--senary)",
+					"name": "Senary"
+				},
+				{
+					"slug": "foreground",
+					"color": "var(--color--foreground)",
+					"name": "Text / Foreground"
+				},
+				{
+					"slug": "foreground-alt",
+					"color": "var(--color--foreground--alt)",
+					"name": "Text Alt / Foreground Alt"
+				},
+				{
+					"slug": "background",
+					"color": "var(--color--background)",
+					"name": "Background"
+				},
+				{
+					"slug": "background-alt",
+					"color": "var(--color--background--alt)",
+					"name": "Background Alt"
+				}
+			]
+		},
+		"spacing": {
+			"units": [
+				"%",
+				"px",
+				"rem",
+				"vh",
+				"vw"
+			]
+		},
+		"typography": {
+			"dropCap": false,
+			"customFontSize": false,
+			"fontWeight": false,
+			"fontStyle": false,
+			"lineHeight": false,
+			"letterSpacing": false,
+			"textDecoration": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "var(--font-family--primary)",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"fontFamily": "var(--font-family--secondary)",
+					"name": "Secondary",
+					"slug": "secondary"
+				}
+			],
+			"fontSizes": [
+				{
+					"name": "Extra small",
+					"size": "var(--f-font-size--xsmall)",
+					"slug": "xsmall"
+				},
+				{
+					"name": "Small",
+					"size": "var(--f-font-size--small)",
+					"slug": "small"
+				},
+				{
+					"name": "Medium",
+					"size": "var(--f-font-size--medium)",
+					"slug": "medium"
+				},
+				{
+					"name": "Large",
+					"size": "var(--f-font-size--large)",
+					"slug": "large"
+				},
+				{
+					"name": "X Large",
+					"size": "var(--f-font-size--xlarge)",
+					"slug": "xlarge"
+				},
+				{
+					"name": "2X Large",
+					"size": "var(--f-font-size--2xlarge)",
+					"slug": "2xlarge"
+				},
+				{
+					"name": "3X Large",
+					"size": "var(--f-font-size--3xlarge)",
+					"slug": "3xlarge"
+				},
+				{
+					"name": "4X Large",
+					"size": "var(--f-font-size--4xlarge)",
+					"slug": "4xlarge"
+				},
+				{
+					"name": "5X Large",
+					"size": "var(--f-font-size--5xlarge)",
+					"slug": "5xlarge"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "var(--layout--content-size)",
+			"wideSize": "var(--layout--wide-size)"
+		}
+	},
+	"styles": {
+		"blocks": {},
+		"color": {
+			"background": "var(--color--background)",
+			"text": "var(--color--foreground)"
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--color-link)"
+				},
+				"typography": {
+					"textDecoration": "underline"
+				}
+			}
+		},
+		"spacing": {
+			"blockGap": "var(--layout--block-gap)"
+		},
+		"typography": {
+			"fontFamily": "var(--font-family--primary)",
+			"lineHeight": "var(--p--line-height)",
+			"fontSize": "var(--p--font-size)"
+		}
+	}
+}

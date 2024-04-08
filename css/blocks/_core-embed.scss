@@ -1,0 +1,130 @@
+// Apply max-inline-size to floated items that have no intrinsic width
+.wp-block-embed.alignleft,
+.wp-block-embed.alignright {
+	// Instagram widgets have a min-inline-size of 326px,
+	// so go a bit beyond that.
+	max-inline-size: rem(360);
+	inline-size: 100%;
+
+	// Unless these have a min-inline-size, they collapse when floated.
+	.wp-block-embed__wrapper {
+		min-inline-size: rem(280);
+	}
+}
+
+// Supply a min-inline-size when inside a cover block,
+// to prevent it from collapsing.
+.wp-block-cover .wp-block-embed {
+	min-inline-size: rem(320);
+	min-block-size: rem(240);
+}
+
+.wp-block-embed {
+	overflow-wrap: break-word; // Break long strings of text without spaces so they don't overflow the block.
+
+	// Supply caption styles to embeds, even if the theme hasn't opted in.
+	// Reason being: the new markup, figcaptions,
+	// are not likely to be styled in the majority of existing themes,
+	// so we supply the styles so as to not appear broken or unstyled in those.
+	figcaption {
+		@include caption-style();
+	}
+
+	// Don't allow iframe to overflow it's container.
+	iframe {
+		max-inline-size: 100%;
+	}
+}
+
+.wp-block-embed__wrapper {
+	position: relative;
+}
+
+// Add responsiveness to embeds with aspect ratios.
+// To set a ratio, add the class 'wp-has-aspect-ratio'
+// in the additional CSS Class of the embed element.
+// Example: 'wp-has-aspect-ratio wp-embed-aspect-21-9'.
+.wp-embed-responsive .wp-has-aspect-ratio {
+	.wp-block-embed__wrapper {
+		aspect-ratio: 2/1; // Default to 2:1 aspect ratio.
+	}
+
+	iframe {
+		position: absolute;
+		inset: 0;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+}
+
+.wp-embed-responsive {
+	.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
+		aspect-ratio: 21/9;
+	}
+
+	.wp-embed-aspect-18-9 .wp-block-embed__wrapper {
+		aspect-ratio: 2/1;
+	}
+
+	.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+		aspect-ratio: 16/9;
+	}
+
+	.wp-embed-aspect-4-3 .wp-block-embed__wrapper {
+		aspect-ratio: 4/3;
+	}
+
+	.wp-embed-aspect-1-1 .wp-block-embed__wrapper {
+		aspect-ratio: 1;
+	}
+
+	.wp-embed-aspect-9-16 .wp-block-embed__wrapper {
+		aspect-ratio: 9/16;
+	}
+
+	.wp-embed-aspect-1-2 .wp-block-embed__wrapper {
+		aspect-ratio: 2/1;
+	}
+}
+
+@include block-editor-only {
+	.wp-block-embed {
+		// Necessary because we use responsive trickery to set width/height,
+		// therefore the video doesn't intrinsically clear floats like
+		// an image does.
+		clear: both;
+
+		&.is-loading {
+			display: flex;
+			justify-content: center;
+		}
+
+		// Stops long URLs from breaking out of the no preview available screen
+		.components-placeholder__error {
+			word-break: break-word;
+		}
+
+		.components-placeholder__learn-more {
+			margin-block-start: 1em;
+		}
+	}
+
+	.block-library-embed__interactive-overlay {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+	}
+
+	.wp-block[data-align="left"],
+	.wp-block[data-align="right"] {
+		> .wp-block-embed {
+			max-inline-size: 360px;
+			inline-size: 100%;
+
+			// Unless these have a min-inline-size, they collapse when floated.
+			.wp-block-embed__wrapper {
+				min-inline-size: rem(280);
+			}
+		}
+	}
+}

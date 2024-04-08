@@ -1,0 +1,324 @@
+:root {
+
+	/*
+	 * Main Colors
+	 * Contains variables referenced from theme.json.
+	 */
+
+	// Primary Colors
+	--color--blue--100: hsl(224, 79%, 24%);  // #0D276E
+	--color--blue--200: hsl(224, 80%, 32%);  // #103493
+	--color--blue--300: hsl(224, 74%, 44%);  // #1D4AC4
+	--color--blue--400: hsl(223, 95%, 86%);  // #B9CCFD
+	--color--blue--500: hsl(221, 100%, 95%);  // #E2EBFF
+
+	// Accent Colors
+	--color--violet--100: hsl(281, 44%, 38%);  // #70368B
+	--color--violet--200: hsl(281, 63%, 53%);  // #A13AD2
+	--color--violet--300: hsl(281, 85%, 67%);  // #C463F2
+	--color--violet--400: hsl(280, 100%, 90%);  // #EECCFF
+	--color--violet--500: hsl(281, 100%, 95%);  // #F7E6FF
+
+	// Neutral Colors
+	--color--neutral--100: hsl(223, 57%, 10%); // #0B1328
+	--color--neutral--200: hsl(221, 32%, 22%); // #263149
+	--color--neutral--300: hsl(223, 14%, 48%); // #69738C
+	--color--neutral--400: hsl(223, 14%, 70%); // #A8AEBD
+	--color--neutral--500: hsl(222, 12%, 84%); // #D1D4DB
+	--color--neutral--600: hsl(225, 9%, 91%); // #E6E7EA
+	--color--neutral--700: hsl(210, 11%, 96%); // #F5F6F7
+	--color--neutral--800: hsl(0, 0%, 100%); // #FFFFFF
+
+	// Error Colors
+	--color--red--100: hsl(358, 81%, 22%);  // #670B0E
+	--color--red--200: hsl(357, 67%, 41%);  // #AF232A
+	--color--red--300: hsl(357, 72%, 54%);  // #DE363E
+	--color--red--400: hsl(356, 91%, 91%);  // #FDD2D5
+	--color--red--500: hsl(358, 92%, 95%);  // #FEE6E7
+
+	// Warning Colors
+	--color--amber--100: hsl(28, 74%, 31%);  // #874914
+	--color--amber--200: hsl(28, 97%, 44%);  // #DC6803
+	--color--amber--300: hsl(32, 93%, 56%);  // #F79726
+	--color--amber--400: hsl(41, 84%, 87%);  // #FAE9C4
+	--color--amber--500: hsl(39, 94%, 94%);  // #FEF4E1
+
+	// Success Colors
+	--color--green--100: hsl(138, 67%, 19%);  // #105023
+	--color--green--200: hsl(137, 54%, 33%);  // #278141
+	--color--green--300: hsl(137, 49%, 50%);  // #42BE66
+	--color--green--400: hsl(137, 65%, 88%);  // #CCF4D7
+	--color--green--500: hsl(137, 68%, 94%);  // #E5FAEB
+
+	// Info Colors
+	--color--purple--100: hsl(254, 55%, 38%);  // #452C96
+	--color--purple--200: hsl(254, 55%, 48%);  // #5737BE
+	--color--purple--300: hsl(254, 92%, 66%);  // #7E59F8
+	--color--purple--400: hsl(253, 96%, 89%);  // #D4C8FE
+	--color--purple--500: hsl(256, 93%, 95%);  // #EAE3FE
+
+
+	// Primary Tokens
+	--color--primary-darker: var(--color--blue--100);
+	--color--primary-dark: var(--color--blue--200);
+	--color--primary: var(--color--blue--300);
+	--color--primary-light: var(--color--blue--400);
+	--color--primary-lighter: var(--color--blue--500);
+
+	// Accent Tokens
+	--color--accent-darker: var(--color--violet--100);
+	--color--accent-dark: var(--color--violet--200);
+	--color--accent: var(--color--violet--300);
+	--color--accent-light: var(--color--violet--400);
+	--color--accent-lighter: var(--color--violet--500);
+
+	// Neutral Tokens
+	--color--darkest: var(--color--neutral--100);
+	--color--darker: var(--color--neutral--200);
+	--color--dark: var(--color--neutral--300);
+	--color--medium-dark: var(--color--neutral--400);
+	--color--medium: var(--color--neutral--500);
+	--color--medium-light: var(--color--neutral--600);
+	--color--light: var(--color--neutral--700);
+	--color--lightest: var(--color--neutral--800);
+
+	// Error Tokens
+	--color--error-darker: var(--color--red--100);
+	--color--error-dark: var(--color--red--200);
+	--color--error: var(--color--red--300);
+	--color--error-light: var(--color--red--400);
+	--color--error-lighter: var(--color--red--500);
+
+	// Warning Tokens
+	--color--warning-darker: var(--color--amber--100);
+	--color--warning-dark: var(--color--amber--200);
+	--color--warning: var(--color--amber--300);
+	--color--warning-light: var(--color--amber--400);
+	--color--warning-lighter: var(--color--amber--500);
+
+	// Success Tokens
+	--color--success-darker: var(--color--green--100);
+	--color--success-dark: var(--color--green--200);
+	--color--success: var(--color--green--300);
+	--color--success-light: var(--color--green--400);
+	--color--success-lighter: var(--color--green--500);
+
+	// Info Tokens
+	--color--info-darker: var(--color--purple--100);
+	--color--info-dark: var(--color--purple--200);
+	--color--info: var(--color--purple--300);
+	--color--info-light: var(--color--purple--400);
+	--color--info-lighter: var(--color--purple--500);
+
+	// Text
+	--color--text-primary: var(--color--neutral--100);
+	--color--text-secondary: var(--color--neutral--200);
+	--color--text-tertiary: var(--color--neutral--300);
+	--color--text-disabled: var(--color--neutral--400);
+	--color--text-invert: var(--color--neutral--800);
+	--color--text-interactive: var(--color--blue--300);
+	--color--text-interactive--hover: var(--color--blue--200);
+	--color--text-accent: var(--color--purple--400);
+
+	// Surface
+	--color--surface-primary: var(--color--neutral--800);
+	--color--surface-secondary: var(--color--neutral--700);
+	--color--surface-tertiary: var(--color--neutral--600);
+	--color--surface-invert: var(--color--neutral--100);
+	--color--surface-interactive: var(--color--blue--300);
+	--color--surface-interactive--hover: var(--color--blue--200);
+	--color--surface-brand: var(--color--blue--500);
+	--color--surface-accent: var(--color--purple--500);
+
+	// Semantic Colors
+	--color--background: var(--color--light);
+	--color--background--alt: var(--color--lightest);
+
+	--color--foreground: var(--color--darkest);
+	--color--foreground--alt: var(--color--darker);
+
+	--color--border: var(--color--medium);
+
+	// Ensure sufficient contrast for keyboard accessibility.
+	--color--focus-ring: var(--color--primary);
+	--color--link: var(--color--primary);
+	--color--link--hover: var(--color--primary-dark);
+
+	// Gradients
+	--gradient--linear-fade-out: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 23%, #000 100%);
+
+	/*
+	 * SPACING
+	 * Used for stacking elements vertically and stacking elements inline.
+	 * Visualised in blocks divisible by 4.
+	 */
+
+	/*
+	 * VARIABLES STANDARDISATION
+	 * Prefer T-Shirt sizes for consistency with Astro Kit.
+	 * Example: xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl
+	 */
+
+	// Spacing baseline.
+	// Change this value to use another point grid system
+	// (multiple of 8 currently).
+	--base-spacing: #{rem($size--base-spacing)};
+
+	--spacing--2xs: calc(0.25 * var(--base-spacing)); // 4px
+	--spacing--xs: calc(0.5 * var(--base-spacing)); // 8px
+	--spacing--s: calc(0.75 * var(--base-spacing)); // 12px
+	--spacing--m: var(--base-spacing); // 16px
+	--spacing--l: calc(1.5 * var(--base-spacing)); // 24px
+	--spacing--xl: calc(2 * var(--base-spacing)); // 32px
+	--spacing--2xl: calc(2.5 * var(--base-spacing)); // 40px
+	--spacing--3xl: calc(3 * var(--base-spacing)); // 48px
+	--spacing--4xl: calc(4 * var(--base-spacingp)); // 64px
+	--spacing--5xl: calc(6 * var(--base-spacing)); // 96px
+	--spacing--6xl: calc(8 * var(--base-spacing)); // 128px
+
+	/*
+	 * FLUID SPACING
+	 * Min viewport: 320px
+	 * Max viewport: --layout--wide-size (1600px)
+	 * Calculate Fluid Spacings with
+	 * https://utopia.fyi/space/calculator/
+	 * In this case, the Max Viewport is set to 1600px
+	 * (the value of --layout--wide-size)
+	 * Min Viewport: 320px
+	 * Max Viewport: --layout--wide-size (800px)
+	 */
+	--f-spacing--s: clamp(0.75rem, 0.6875rem + 0.3125vw, 1rem);
+	--f-spacing--m: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);
+	--f-spacing--l: clamp(1.5rem, 1.3125rem + 0.9375vw, 2.25rem);
+	--f-spacing--xl: clamp(2rem, 1.75rem + 1.25vw, 3rem);
+	--f-spacing--2xl: clamp(2.5rem, 2.125rem + 1.875vw, 4rem);
+	--f-spacing--3xl: clamp(4rem, 3.5rem + 2.5vw, 6rem);
+	--f-spacing--4xl: clamp(5rem, 4.25rem + 3.75vw, 8rem);
+	--f-spacing--5xl: clamp(7rem, 6.5rem + 2.5vw, 9rem);
+
+	/*
+	 * LAYOUT
+	 * Contains variables referenced from theme.json.
+	 * Interpolation is required to pass computed SASS values to the CSS variable.
+	 * https://sass-lang.com/documentation/interpolation
+	 */
+	--layout--block-gap: var(--spacing--xl);
+	--layout--grid--gutter: var(--spacing--l);
+
+	--layout--content-size: #{$size--content};
+	--layout--wide-size: #{$size--wide};
+	--block-container--content-width: var(--block-container--content-width, var(--layout--wide-size));
+
+	/*
+	 * BORDER RADIUS
+	 */
+
+	--border-radius--normal: 0;
+	--border-radius--xs: #{rem(2)}; // For small button
+	--border-radius--s: #{rem(4)}; // For small button
+	--border-radius--m: #{rem(8)}; // For medium/large button
+	--border-radius--l: #{rem(16)}; // For card
+	--border-radius--round: 99%;
+
+	/*
+	 * TYPOGRAPHY
+	 * Contains variables referenced from theme.json.
+	 */
+
+	// Font Families
+	--font-family--primary: "helvetica neue", helvetica, arial, sans-serif;
+	--font-family--secondary: "book antiqua", palatino, palatino linotype, palatino lt std, georgia, serif;
+
+	// Fixed Font Sizes
+	--font-size--xs: 0.75rem; // 12px
+	--font-size--s: 0.87rem; // 14px
+	--font-size--m: 1rem; // 16px
+	--font-size--l: 1.25rem; // 18px
+	--font-size--xl: 1.5rem; // 24px
+	--font-size--2xl: 2rem; // 32px
+	--font-size--3xl: 2.25rem; // 36px
+	--font-size--4xl: 3rem; // 48px
+	--font-size--5xl: 4rem; // 64px
+
+	/*
+	 * Fluid font-sizes
+	 * font-size:
+	 *   clamp(var(--font-size--3xl),
+	 *   1vw + 1rem,
+	 *   var(--font-size--4xl));
+	 *
+	 * Calculate a Fluid Typography Scale
+	 * https://royalfig.github.io/fluid-typography-calculator/
+	 * In this case, the Max Viewport is set to 800px
+	 * (the value of --layout--content-size)
+	 * Min Viewport: 320px
+	 * Max Viewport: --layout--content-size (800px)
+	 */
+	--f-font-size--xs: var(--font-size--xs); // 12px
+	--f-font-size--s: clamp(var(--font-size--xs), 0.6369047619047619rem + 0.4761904761904762vw, var(--font-size--s)); // 12px -> 14px
+	--f-font-size--m: clamp(var(--font-size--s), 0.7917rem + 0.4167vw, var(--font-size--m)); // 14px -> 16px
+	--f-font-size--l: clamp(var(--font-size--m), 0.9166rem + 0.4167vw, var(--font-size--l)); // 16px -> 18px
+	--f-font-size--xl: clamp(var(--font-size--l), 0.875rem + 1.25vw, var(--font-size--xl)); // 18px -> 24px
+	--f-font-size--2xl: clamp(var(--font-size--xl), 1.1667rem + 1.6667vw, var(--font-size--2xl)); // 24px -> 32px
+	--f-font-size--3xl: clamp(var(--font-size--2xl), 1.8333rem + 0.8334vw, var(--font-size--3xl)); // 32px -> 36px
+	--f-font-size--4xl: clamp(var(--font-size--3xl), 1.75rem + 2.5vw, var(--font-size--4xl)); // 36px -> 48px
+	--f-font-size--5xl: clamp(var(--font-size--4xl), 2.3333rem + 3.3333vw, var(--font-size--5xl)); // 48px -> 64px
+
+	// Line heights
+	--line-height--none: 1;
+	--line-height--xs: 1.1;
+	--line-height--s: 1.2;
+	--line-height--m: 1.4;
+	--line-height--l: 1.6;
+	--line-height--xl: 1.8;
+
+	// Font weights
+	--font-weight--regular: 400;
+	--font-weight--medium: 500;
+	--font-weight--semibold: 600;
+	--font-weight--bold: 700;
+
+	// Letter Spacing
+	--letter-spacing--none: 0;
+	--letter-spacing--s: 0.02em;
+	--letter-spacing--m: 0.04em;
+	--letter-spacing--l: 0.08em;
+
+	// Standard typography
+	--p--font-size: var(--f-font-size--s);
+	--p--line-height: var(--line-height--l);
+
+	/**
+	 * Headings.
+	 *
+	 * Usage of fluid font-sizes is optional, but recommended.
+	 */
+
+	--heading-hero--font-size: var(--f-font-size--5xl);
+	--heading-hero--line-height: var(--line-height--xs);
+	--heading-hero--letter-spacing: var(--letter-spacing--none);
+
+	--heading-2xl--font-size: var(--f-font-size--4xl);
+	--heading-2xl--line-height: var(--line-height--xs);
+	--heading-2xl--letter-spacing: var(--letter-spacing--none);
+
+	--heading-xl--font-size: var(--f-font-size--3xl);
+	--heading-xl--line-height: var(--line-height--xs);
+	--heading-xl--letter-spacing: var(--letter-spacing--none);
+
+	--heading-l--font-size: var(--f-font-size--2xl);
+	--heading-l--line-height: var(--line-height--xs);
+	--heading-l--letter-spacing: var(--letter-spacing--none);
+
+	--heading-m--font-size: var(--f-font-size--xl);
+	--heading-m--line-height: var(--line-height--s);
+	--heading-m--letter-spacing: var(--letter-spacing--none);
+
+	--heading-s--font-size: var(--f-font-size--l);
+	--heading-s--line-height: var(--line-height--s);
+	--heading-s--letter-spacing: var(--letter-spacing--s);
+
+	--heading-xs--font-size: var(--f-font-size--m);
+	--heading-xs--line-height: var(--line-height--s);
+	--heading-xs--letter-spacing: var(--letter-spacing--s);
+}

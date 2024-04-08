@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="tests/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
+	<testsuites>
+		<testsuite name="eutopia-theme">
+			<directory suffix=".php">./tests/phpunit/</directory>
+		</testsuite>
+	</testsuites>
+	<php>
+		<!-- Note that wp-env replaces this with a different value. -->
+		<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/wp-config.php" />
+	</php>
+</phpunit>

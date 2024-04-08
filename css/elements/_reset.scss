@@ -1,0 +1,92 @@
+/**
+ * Reset styles.
+ *
+ * Minimal reset of style.
+ * Some good practice are already in the inline CSS of each Gutenberg blocks.
+ *
+ * More about reset files:
+ * https://piccalil.li/blog/a-modern-css-reset/
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://github.com/twbs/bootstrap/blob/main/scss/_reboot.scss
+ */
+
+/**
+ * Use box-sizing for every element.
+ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/**
+ * Site scroll padding in relation to admin bar.
+ * Always visible scrollbar to lower CLS https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter
+ */
+html {
+	scroll-padding-top: calc(var(--admin-bar--height) + var(--header-sticky--height, 0));
+	scrollbar-gutter: stable;
+	margin: 0;
+
+	&:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+
+@media (query(600px, max)) {
+
+	#wpadminbar {
+		position: fixed;
+	}
+}
+
+/**
+ * Set core body defaults.
+ */
+body {
+	min-block-size: 100vh;
+	text-rendering: optimizeSpeed; /* stylelint-disable-line value-keyword-case */
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+}
+
+/**
+ * Make images easier to work with.
+ */
+img,
+picture {
+	max-inline-size: 100%;
+	block-size: auto;
+	display: block;
+}
+
+figure {
+	margin-inline: 0;
+	margin-block-start: 0;
+}
+
+/**
+ * Remove all animations, transitions for people that prefer not to see them.
+ * This is a global setting,
+ * but it would be better to use it on a per-element basis.
+ * https://web.dev/prefers-reduced-motion/#remove-motion-on-the-web
+ *
+ * These animations/@keyframes must be loaded from lazy.scss.
+ * Comment the lines below if an approach on per-element basis is used.
+ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		// stylelint-disable declaration-no-important
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		// stylelint-enable declaration-no-important
+	}
+
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+}

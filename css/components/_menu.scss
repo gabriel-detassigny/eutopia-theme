@@ -1,0 +1,126 @@
+.menu,
+.menu-item {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu-item {
+
+	/* Within header */
+	.site-header & {
+		position: relative;
+	}
+
+	/* Display the dropdown on hover (desktop) */
+	.site-header &.menu-item-has-children:hover > .sub-menu,
+	.site-header &.menu-item-has-children:focus-within > .sub-menu {
+		visibility: visible;
+		opacity: 1;
+		display: block;
+	}
+
+	/* Turn chevron upside down */
+	.site-header &.menu-item-has-children:hover > .dropdown,
+	.site-header &.menu-item-has-children:focus-within > .dropdown {
+		transform: rotate(180deg);
+	}
+
+	/* Within Overlay */
+	.navigation-slidein & {
+		align-items: stretch;
+		display: flex;
+		inline-size: 100%;
+	}
+
+	.navigation-slidein & .dropdown {
+		cursor: pointer;
+		display: flex;
+	}
+
+	.navigation-slidein &.is-open > .dropdown,
+	.navigation-slidein &:focus-within > .dropdown {
+		transform: rotate(180deg);
+	}
+
+	.navigation-slidein &.is-open > .sub-menu,
+	.navigation-slidein &:focus-within > .sub-menu {
+		display: block;
+
+		@include break-desktop {
+			display: none;
+		}
+	}
+}
+
+.menu-item a {
+	padding: var(--spacing--s);
+
+	// Mobile
+	.navigation-slidein & {
+		flex: 1;
+		inline-size: calc(100% - #{rem(32)});
+	}
+}
+
+.menu-item .dropdown {
+	transition: $transition-transform;
+
+	// Mobile
+	.navigation-slidein & {
+		align-items: center;
+		display: flex;
+		flex: 0 0 rem(60);
+		justify-content: center;
+	}
+}
+
+@mixin submenu-dropdown {
+	background-color: var(--color--background--alt);
+	border-radius: var(--border-radius--m);
+	box-shadow: $elevation--active;
+	inline-size: max-content;
+	inset-block-start: 100%;
+	inset-inline-start: 0;
+	opacity: 0;
+	padding: var(--spacing--xs) var(--spacing--s);
+	position: absolute;
+	visibility: hidden;
+}
+
+.menu-item .sub-menu {
+	display: none;
+
+	@include break-desktop {
+		@include submenu-dropdown;
+	}
+
+	// Sub (sub) menu
+	.sub-menu {
+		@include break-desktop {
+			inset-inline-start: 100%;
+			inset-block-start: calc(var(--spacing--xs) * -1);
+		}
+	}
+
+	// Mobile
+	.navigation-slidein & {
+		flex: 0 0 100%;
+		padding-inline-start: 0;
+
+		@include break-desktop {
+			display: none;
+		}
+	}
+}
+
+.menu-item-has-children {
+	// Mobile
+	.navigation-slidein & {
+		flex-wrap: wrap;
+	}
+}

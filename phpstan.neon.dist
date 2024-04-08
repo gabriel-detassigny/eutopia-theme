@@ -1,0 +1,25 @@
+parameters:
+  level: 3
+  checkMissingIterableValueType: false
+  reportUnmatchedIgnoredErrors: false
+  paths:
+    - .
+  excludePaths:
+    analyseAndScan:
+      - tests/
+      - node_modules/
+    analyse:
+      - vendor/
+      - tools/wordpress/
+      - tools/wp-content/
+  stubFiles:
+    - tools/phpstan/stubs.php
+  dynamicConstantNames:
+    - WP_DEBUG
+    - WP_SCRIPT_DEBUG
+  ignoreErrors:
+    -
+      message: '#PHPDoc tag @return contains unresolvable type.#'
+      path: php/components/class-styles.php
+    -
+      message: '#Constant WP_CONTENT_DIR not found.#'

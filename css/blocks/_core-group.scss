@@ -1,0 +1,52 @@
+@include block-editor-only {
+	// Group: All Alignment Settings
+	.wp-block-group {
+		// Ensure not rendering outside the element
+		// as -1px causes overflow-x scrollbars
+		.block-editor-block-list__insertion-point {
+			inset-inline: 0;
+		}
+	}
+
+	// Place block list appender in the same place content will appear.
+	[data-type="core/group"].is-selected {
+		.block-list-appender {
+			margin-inline: 0;
+		}
+
+		.has-background .block-list-appender {
+			margin-block: calc(var(--layout--block-gap) + #{rem(4)});
+		}
+	}
+
+	// Affect the appender of the Row and Stack variants.
+	.wp-block-group.is-layout-flex.block-editor-block-list__block > .block-list-appender:only-child {
+		gap: inherit;
+
+		&,
+		.block-editor-default-block-appender__content,
+		.block-editor-inserter {
+			display: inherit;
+			inline-size: 100%;
+			flex-direction: inherit;
+			flex: 1;
+		}
+
+		&::after {
+			content: "";
+			display: flex;
+			flex: 1 0 rem(48);
+			pointer-events: none;
+			min-block-size: calc(rem(48) - #{rem(1)} - #{rem(1)});
+
+			@include placeholder-style();
+		}
+
+		// Let the parent be selectable in the placeholder area.
+		pointer-events: none;
+
+		.block-editor-inserter {
+			pointer-events: all;
+		}
+	}
+}
