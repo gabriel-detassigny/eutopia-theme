@@ -506,8 +506,8 @@ class Styles extends Component {
 		}
 
 		$google_fonts = [
-			'Roboto'       => [ '400', '400i', '700', '700i' ],
-			'Merriweather' => [ '400', '400i', '700', '700i' ],
+			'helvetica neue'  => [ '400', '400i', '700', '700i' ],
+			'GFS Neohellenic' => [ '400', '400i', '700', '700i' ],
 		];
 
 		/**

@@ -28,26 +28,6 @@
 					"name": "Secondary"
 				},
 				{
-					"slug": "tertiary",
-					"color": "var(--color--tertiary)",
-					"name": "Tertiary"
-				},
-				{
-					"slug": "quaternary",
-					"color": "var(--color--quaternary)",
-					"name": "Quaternary"
-				},
-				{
-					"slug": "quinary",
-					"color": "var(--color--quinary)",
-					"name": "Quinary"
-				},
-				{
-					"slug": "senary",
-					"color": "var(--color--senary)",
-					"name": "Senary"
-				},
-				{
 					"slug": "foreground",
 					"color": "var(--color--foreground)",
 					"name": "Text / Foreground"
@@ -160,7 +140,7 @@
 		"elements": {
 			"link": {
 				"color": {
-					"text": "var(--color-link)"
+					"text": "var(--color--link)"
 				},
 				"typography": {
 					"textDecoration": "underline"
