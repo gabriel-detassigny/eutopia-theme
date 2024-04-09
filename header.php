@@ -38,8 +38,6 @@ if ( Infinite_Scroll::get_instance()?->is_infinite_scroll_page() ) {
 	<!-- The mobile navigation to overlay -->
 	<?php get_template_part( 'template-parts/navigation-slidein' ); ?>
 
-	<?php get_template_part( 'template-parts/top-bar' ); ?>
-
 	<header id="masthead" class="site-header">
 		<div class="site-header__container">
 			<div class="site-header__branding">
@@ -47,39 +45,6 @@ if ( Infinite_Scroll::get_instance()?->is_infinite_scroll_page() ) {
 			</div>
 			<div class="site-header__navigation">
 				<?php get_template_part( 'template-parts/navigation' ); ?>
-			</div>
-			<div class="site-header__search-toggle">
-				<button
-					class="js-use-overlay search-toggle btn btn--ghost btn--icon btn--icon-sm"
-					aria-label="<?php esc_attr_e( 'Open search', 'eutopia-theme' ); ?>"
-					aria-expanded="false"
-					data-scroll="true"
-					data-target="#search-box"
-					data-backdrop="true"
-					data-focus=".search-form__field"
-				>
-					<?php SVG::get_instance()->render_svg( 'assets/svg/icon-search-magnifier.svg' ); ?>
-				</button>
-				<!--
-					If the design hides the search trigger,
-					once the search is open, remove this button
-					and update css/components/_site-header.scss
-				-->
-				<button
-					class="close-search-toggle btn--ghost btn--icon btn--icon-sm"
-					aria-label="<?php esc_attr_e( 'Close search', 'eutopia-theme' ); ?>"
-					data-dismiss="modal"
-				>
-					<?php
-					SVG::get_instance()->render_svg(
-						'assets/svg/icon-close.svg',
-						[
-							'width'  => 24,
-							'height' => 25,
-						]
-					);
-					?>
-				</button>
 			</div>
 			<div class="site-header__main-menu-toggle">
 				<?php get_template_part( 'template-parts/main-menu-toggle' ); ?>

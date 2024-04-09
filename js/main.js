@@ -13,7 +13,6 @@ import { Search } from './modules/search';
 import { LazyComponent } from './modules/lazy-component';
 import { Navigation } from './modules/navigation';
 import { PrimaryMenu } from './modules/primary-menu';
-import { CCBCarousel } from './modules/ccb-carousel';
 
 domReady( async () => {
 	// Polyfills
@@ -27,9 +26,6 @@ domReady( async () => {
 
 	// Non-critical UI components.
 	setTimeout( PrimaryMenu.init, 0 );
-
-	// Initialize Swiper for CCB.
-	setTimeout( CCBCarousel.init, 0 );
 
 	// Nice to have components.
 	requestIdleCallback( LazyComponent.init );

@@ -59,6 +59,15 @@
 
 .menu-item a {
 	padding: var(--spacing--s);
+	color: var(--color--secondary);
+	text-decoration: none;
+	font-family: var(--font-family--secondary);
+	font-size: var(--font-size--m);
+
+	&:hover,
+	&:focus {
+		color: var(--color--secondary--light);
+	}
 
 	// Mobile
 	.navigation-slidein & {
