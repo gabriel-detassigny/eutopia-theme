@@ -7,8 +7,6 @@
  * @package Eutopia_Theme
  */
 
-use Eutopia_Theme\Components\Infinite_Scroll;
-
 get_header();
 ?>
 
@@ -39,14 +37,7 @@ get_header();
 			</div><!-- .posts -->
 
 			<?php
-			$variation = '';
-
-			if ( Infinite_Scroll::get_instance()?->supports_archives() ) {
-				$variation = 'infinite';
-			}
-
-			get_template_part( 'template-parts/pagination', $variation );
-
+			get_template_part( 'template-parts/pagination' );
 		else :
 			get_template_part( 'template-parts/content', 'none' );
 		endif;

@@ -10,21 +10,15 @@ use Eutopia_Theme\Components\SVG;
 
 ?>
 <div class="site-branding">
-	<?php if ( Site_Logo::get_instance()?->has_header_logo() ) : ?>
-		<?php Site_Logo::get_instance()?->render_header_logo(); ?>
-	<?php else : ?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home">
-			<?php
-			SVG::get_instance()->render_svg(
-				'assets/svg/logo.svg',
-				[
-					'width'  => 186,
-					'height' => 35,
-				],
-			);
-			?>
-		</a>
-	<?php endif; ?>
+	<?php
+		SVG::get_instance()->render_svg(
+			'assets/svg/logo-baseline-pervenche.svg',
+			[
+				'width'  => 186,
+				'height' => 62,
+			]
+		);
+		?>
 
 	<?php
 	if ( ! Site_Logo::get_instance()?->show_logo_only() ) {

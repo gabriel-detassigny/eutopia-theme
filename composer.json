@@ -30,13 +30,6 @@
 	"repositories": [
 		{
 			"type": "composer",
-			"url": "https://repo.packagist.com/private/",
-			"only": [
-				"wpengine/advanced-custom-fields-pro"
-			]
-		},
-		{
-			"type": "composer",
 			"url": "https://wpackagist.org",
 			"only": [
 				"wpackagist-plugin/*"
@@ -45,8 +38,7 @@
 	],
 	"require": {
 		"php": ">=8.2",
-		"enshrined/svg-sanitize": "^0.18.0",
-		"wpengine/advanced-custom-fields-pro": "6.1.1"
+		"enshrined/svg-sanitize": "^0.18.0"
 	},
 	"require-dev": {
 		"automattic/vipwpcs": "dev-develop",

@@ -9,12 +9,8 @@
 
 namespace Eutopia_Theme;
 
-use Eutopia_Theme\Components\Infinite_Scroll;
 use Eutopia_Theme\Components\Sidebar;
 
-if ( Infinite_Scroll::get_instance()?->is_infinite_scroll_page() ) {
-	return;
-}
 
 if ( ! Sidebar::get_instance()?->is_primary_sidebar_active() ) {
 	return;

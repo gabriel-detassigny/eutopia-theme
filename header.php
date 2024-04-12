@@ -9,12 +9,7 @@
  * @package Eutopia_Theme
  */
 
-use Eutopia_Theme\Components\Infinite_Scroll;
 use Eutopia_Theme\Components\SVG;
-
-if ( Infinite_Scroll::get_instance()?->is_infinite_scroll_page() ) {
-	return;
-}
 
 ?>
 <!doctype html>

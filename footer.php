@@ -9,13 +9,8 @@
  * @package Eutopia_Theme
  */
 
-use Eutopia_Theme\Components\Infinite_Scroll;
 use Eutopia_Theme\Components\Nav_Menus;
 use Eutopia_Theme\Components\Sidebar;
-
-if ( Infinite_Scroll::get_instance()?->is_infinite_scroll_page() ) {
-	return;
-}
 
 ?>
 
