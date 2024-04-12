@@ -4,20 +4,18 @@
 
 .site-footer {
 	margin-block-start: var(--spacing--3xl);
+	background-color: var(--color--primary);
+	color: var(--color--background);
 }
 
 .site-footer__container {
 	@include container;
 
-	display: grid;
-	gap: var(--gap);
 	padding-block-end: var(--spacing--xl);
 	border-block-start: rem(1) solid var(--color--border);
 
 	@include break-desktop {
 		padding-block-end: var(--spacing--3xl);
-		grid-template-areas: "meta navigation";
-		grid-template-columns: 1fr 1fr;
 	}
 
 	> * {
@@ -33,6 +31,9 @@
 .site-footer__meta {
 	@include break-desktop {
 		grid-area: meta;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 }
 
@@ -53,6 +54,10 @@
 	&-header {
 		font-weight: var(--font-weight--bold);
 		margin-block-end: var(--spacing--m);
+
+		@include break-desktop {
+			text-align: end;
+		}
 	}
 
 	.menu {
@@ -61,10 +66,12 @@
 	}
 
 	.menu-item a {
-		--color--icon: var(--color--foreground);
+		--color--icon: var(--color--background);
+		--color--accent: var(--color--background);
 		display: flex;
 		padding: 0;
 		transition: $transition-color;
+		color: var(--color--icon);
 
 		&:hover,
 		&:focus {
@@ -78,6 +85,7 @@
 	display: grid;
 	inline-size: 100%;
 	gap: var(--gap);
+	margin-block-start: 0;
 
 	@include break-tablet {
 		grid-template-columns: repeat(3, 1fr);
