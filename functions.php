@@ -72,7 +72,6 @@ function gdt_theme() {
 				new Eutopia_Theme\Components\Script_Custom_Attributes_Handler(),
 				new Eutopia_Theme\Components\Scripts(),
 				new Eutopia_Theme\Components\Sidebar(),
-				new Eutopia_Theme\Components\Site_Logo(),
 				new Eutopia_Theme\Components\Styles(),
 				new Eutopia_Theme\Components\SVG(
 					[

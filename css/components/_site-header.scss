@@ -93,6 +93,12 @@
 		block-size: calc(var(--site-header--height) - 6px);
 		inline-size: auto;
 	}
+
+	.site-branding svg {
+		@include break-mobile-only {
+			height: 38px;
+		}
+	}
 }
 
 .site-header__navigation {

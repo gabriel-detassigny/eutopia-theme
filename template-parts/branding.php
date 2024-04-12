@@ -5,7 +5,6 @@
  * @package Eutopia_Theme
  */
 
-use Eutopia_Theme\Components\Site_Logo;
 use Eutopia_Theme\Components\SVG;
 
 ?>
@@ -19,18 +18,4 @@ use Eutopia_Theme\Components\SVG;
 			]
 		);
 		?>
-
-	<?php
-	if ( ! Site_Logo::get_instance()?->show_logo_only() ) {
-		if ( is_front_page() && is_home() ) {
-			?>
-			<h1 class="screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php
-		} else {
-			?>
-			<p class="screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-		}
-	}
-	?>
 </div><!-- .site-branding -->
