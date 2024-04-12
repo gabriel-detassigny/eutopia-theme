@@ -78,7 +78,7 @@ class Utils {
 	 *
 	 * @return mixed|false
 	 */
-	public static function with_cache( string $key, callable|string $group_or_callback, callable $callback = null, int $expire = 0 ): mixed {
+	public static function with_cache( string $key, callable|string $group_or_callback, ?callable $callback = null, int $expire = 0 ): mixed {
 		$group = '';
 
 		if ( is_string( $group_or_callback ) ) {
