@@ -42,6 +42,8 @@ class Block_Types_Allowed extends Component {
 		'core/video'           => 'core/video',
 		'core/post-title'      => 'core/post-title',
 		'core/legacy-widget'   => 'core/legacy-widget',
+		'core/html'            => 'core/html',
+		'core/file'            => 'core/file',
 	];
 
 	/**
