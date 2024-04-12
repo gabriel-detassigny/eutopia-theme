@@ -7,13 +7,13 @@
 	visibility: hidden;
 	opacity: 0;
 	transform: translateX(-100vw);
-	background-color: var(--color--neutral--800);
+	background-color: var(--color--primary);
 	min-width: rem(260);
 	transition: $transition-transform, $transition-fade, $transition-shadow;
 
 	&.is-overlaid {
 		visibility: visible;
-		opacity: 1;
+		opacity: 0.8;
 		transform: translateX(0);
 	}
 
