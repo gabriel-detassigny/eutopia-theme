@@ -30,6 +30,15 @@
 		transform: rotate(180deg);
 	}
 
+	.site-header & a {
+		color: var(--color--primary);
+		text-transform: uppercase;
+	}
+
+	.site-header.is-stuck & a {
+		color: var(--color--secondary);
+	}
+
 	/* Within Overlay */
 	.navigation-slidein & {
 		align-items: stretch;
@@ -66,7 +75,7 @@
 
 	&:hover,
 	&:focus {
-		color: var(--color--secondary--light);
+		text-decoration: underline;
 	}
 
 	// Mobile

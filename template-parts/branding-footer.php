@@ -13,10 +13,11 @@ use Eutopia_Theme\Components\SVG;
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-footer-link" rel="home" aria-label="homepage">
 		<?php
 		SVG::get_instance()->render_svg(
-			'assets/svg/logo-baseline-pervenche.svg',
+			'assets/svg/logo-baseline.svg',
 			[
 				'width'  => 186,
 				'height' => 100,
+				'color'  => 'var(--color--secondary)',
 			]
 		);
 		?>

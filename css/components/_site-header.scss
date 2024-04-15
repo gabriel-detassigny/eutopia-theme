@@ -34,8 +34,8 @@
 .site-header {
 	position: relative;
 	z-index: $z-index--site-header;
-	border-block-end: 1px solid var(--color--border);
-	background-color: var(--color--primary);
+	background-color: transparent;
+	color: var(--color--primary);
 	height: var(--site-header--height);
 	transition: $transition-shadow;
 
@@ -45,6 +45,8 @@
 		position: sticky;
 		inset-block-start: calc(var(--wp-admin--admin-bar--height, 0px) - 1px);
 		box-shadow: $elevation--raised;
+		background-color: var(--color--primary);
+		color: var(--color--secondary);
 	}
 
 	// This applies to mobile header only.
@@ -89,12 +91,15 @@
 	grid-area: branding;
 
 	// Limit the logo size to be under the header height.
-	.branding-logo {
+	a.branding-logo {
 		block-size: calc(var(--site-header--height) - 6px);
 		inline-size: auto;
+		color: currentcolor;
 	}
 
 	.site-branding svg {
+		color: currentcolor;
+
 		@include break-mobile-only {
 			height: 38px;
 		}

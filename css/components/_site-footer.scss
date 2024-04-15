@@ -42,7 +42,6 @@
 	align-items: center;
 	gap: var(--spacing--m);
 	font-weight: var(--font-weight--medium);
-	margin-block-end: var(--spacing--3xl);
 
 	a {
 		color: var(--color--foreground);
@@ -84,10 +83,10 @@
 .site-footer__navigation {
 	display: grid;
 	inline-size: 100%;
-	gap: var(--gap);
-	margin-block-start: 0;
+	margin-block-start: var(--spacing--xl);
 
 	@include break-tablet {
+		margin-block-start: 0;
 		grid-template-columns: repeat(3, 1fr);
 	}
 
