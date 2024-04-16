@@ -34,10 +34,15 @@
 .site-header {
 	position: relative;
 	z-index: $z-index--site-header;
-	background-color: transparent;
-	color: var(--color--primary);
+	background-color: var(--color--primary);
+	color: var(--color--secondary);
 	height: var(--site-header--height);
 	transition: $transition-shadow;
+
+	&--inverted:not(.is-stuck) {
+		background-color: transparent;
+		color: var(--color--text-secondary);
+	}
 
 	// On mobile, only the `is-stuck` classname decides if the header should
 	// get stuck. However, the box shadow applies universally across breakpoints.
@@ -45,8 +50,6 @@
 		position: sticky;
 		inset-block-start: calc(var(--wp-admin--admin-bar--height, 0px) - 1px);
 		box-shadow: $elevation--raised;
-		background-color: var(--color--primary);
-		color: var(--color--secondary);
 	}
 
 	// This applies to mobile header only.

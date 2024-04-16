@@ -9,8 +9,12 @@
  * @package Eutopia_Theme
  */
 
-use Eutopia_Theme\Components\SVG;
+use Eutopia_Theme\Helpers\Utils;
 
+$header_classes = [ 'site-header' ];
+if ( Utils::supports_navbar_overlay() ) {
+	$header_classes[] = 'site-header--inverted';
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -33,7 +37,7 @@ use Eutopia_Theme\Components\SVG;
 	<!-- The mobile navigation to overlay -->
 	<?php get_template_part( 'template-parts/navigation-slidein' ); ?>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="<?php echo esc_attr( implode( ' ', $header_classes ) ); ?>">
 		<div class="site-header__container">
 			<div class="site-header__branding">
 				<?php get_template_part( 'template-parts/branding' ); ?>

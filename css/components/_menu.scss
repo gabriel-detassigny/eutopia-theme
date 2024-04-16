@@ -31,12 +31,12 @@
 	}
 
 	.site-header & a {
-		color: var(--color--primary);
 		text-transform: uppercase;
+		color: var(--color--secondary);
 	}
 
-	.site-header.is-stuck & a {
-		color: var(--color--secondary);
+	.site-header.site-header--inverted:not(.is-stuck) & a {
+		color: var(--color--text-secondary);
 	}
 
 	/* Within Overlay */

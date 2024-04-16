@@ -1,7 +1,7 @@
 .navigation-slidein {
 	position: fixed;
 	inline-size: 100%;
-	inset-block-start: calc(var(--top-bar--height) + var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
+	inset-block-start: calc(var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
 	inset-block-end: 0;
 	inset-inline-start: 0;
 	visibility: hidden;

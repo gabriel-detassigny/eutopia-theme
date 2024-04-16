@@ -32,3 +32,7 @@
 	opacity: 0.5;
 	width: 100%;
 }
+
+.post-thumbnail--overlay {
+	margin-block: calc(var(--site-header--height) * -1) var(--spacing--l);
+}

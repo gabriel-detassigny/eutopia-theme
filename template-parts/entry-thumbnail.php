@@ -7,6 +7,7 @@
 
 use Eutopia_Theme\Components\Images;
 use Eutopia_Theme\Helpers\Sizes;
+use Eutopia_Theme\Helpers\Utils;
 
 if ( ! has_post_thumbnail() ) {
 	return;
@@ -19,9 +20,14 @@ $sizes = Images::get_sizes_attr(
 	],
 );
 
+$classes = [ 'post-thumbnail' ];
+if ( Utils::supports_navbar_overlay() ) {
+	$classes[] = 'post-thumbnail--overlay';
+}
+
 if ( is_singular( get_post_type() ) ) {
 	?>
-	<div class="post-thumbnail">
+	<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 		<?php
 		the_post_thumbnail(
 			Images::RATIO_21X9,
@@ -35,7 +41,7 @@ if ( is_singular( get_post_type() ) ) {
 	<?php
 } else {
 	?>
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	<a class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" href="<?php the_permalink(); ?>">
 		<?php
 		the_post_thumbnail(
 			Images::RATIO_21X9,

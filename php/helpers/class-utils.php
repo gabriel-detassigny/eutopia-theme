@@ -127,4 +127,13 @@ class Utils {
 			),
 		);
 	}
+
+	/**
+	 * Check if the currently displayed page should support navbar overlay or not.
+	 *
+	 * @return bool
+	 */
+	public static function supports_navbar_overlay(): bool {
+		return ( is_page() && has_post_thumbnail() );
+	}
 }
