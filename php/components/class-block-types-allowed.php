@@ -25,11 +25,14 @@ class Block_Types_Allowed extends Component {
 		'core/block'           => 'core/block',
 		'core/button'          => 'core/button',
 		'core/buttons'         => 'core/buttons',
+		'core/columns'         => 'core/columns',
 		'core/cover'           => 'core/cover',
 		'core/embed'           => 'core/embed',
+		'core/file'            => 'core/file',
 		'core/gallery'         => 'core/gallery',
 		'core/group'           => 'core/group',
 		'core/heading'         => 'core/heading',
+		'core/html'            => 'core/html',
 		'core/image'           => 'core/image',
 		'core/list'            => 'core/list',
 		'core/list-item'       => 'core/list-item',
@@ -42,8 +45,6 @@ class Block_Types_Allowed extends Component {
 		'core/video'           => 'core/video',
 		'core/post-title'      => 'core/post-title',
 		'core/legacy-widget'   => 'core/legacy-widget',
-		'core/html'            => 'core/html',
-		'core/file'            => 'core/file',
 	];
 
 	/**
