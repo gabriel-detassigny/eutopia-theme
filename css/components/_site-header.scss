@@ -1,6 +1,6 @@
 :root {
 	// Usage of Pixels unit is intentional.
-	--site-header--height: 48px;
+	--site-header--height: 58px;
 
 	// Used for site scroll padding
 	--header-sticky--height: var(--site-header--height);
@@ -104,7 +104,8 @@
 		color: currentcolor;
 
 		@include break-mobile-only {
-			height: 38px;
+			height: 45px;
+			margin-inline-start: 20px;
 		}
 	}
 }
