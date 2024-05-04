@@ -1,7 +1,7 @@
 .navigation-slidein {
 	position: fixed;
 	inline-size: 100%;
-	inset-block-start: calc(var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px));
+	inset-block-start: calc(var(--site-header--height) + var(--wp-admin--admin-bar--height, 0px) - 1px);
 	inset-block-end: 0;
 	inset-inline-start: 0;
 	visibility: hidden;
@@ -15,6 +15,11 @@
 		visibility: visible;
 		opacity: 0.8;
 		transform: translateX(0);
+
+		& + .site-header-sentinel + .site-header.site-header--inverted {
+			--header--background-color: var(--color--primary);
+			--header--color: var(--color--secondary);
+		}
 	}
 
 	.menu {

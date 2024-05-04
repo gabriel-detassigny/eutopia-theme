@@ -32,16 +32,19 @@
 }
 
 .site-header {
+	--header--background-color: var(--color--primary);
+	--header--color: var(--color--secondary);
+
 	position: relative;
 	z-index: $z-index--site-header;
-	background-color: var(--color--primary);
-	color: var(--color--secondary);
+	background-color: var(--header--background-color);
+	color: var(--header--color);
 	height: var(--site-header--height);
 	transition: $transition-shadow;
 
 	&--inverted:not(.is-stuck) {
-		background-color: transparent;
-		color: var(--color--text-secondary);
+		--header--background-color: transparent;
+		--header--color: var(--color--text-secondary);
 	}
 
 	// On mobile, only the `is-stuck` classname decides if the header should

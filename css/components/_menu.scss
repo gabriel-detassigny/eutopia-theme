@@ -32,11 +32,7 @@
 
 	.site-header & a {
 		text-transform: uppercase;
-		color: var(--color--secondary);
-	}
-
-	.site-header.site-header--inverted:not(.is-stuck) & a {
-		color: var(--color--text-secondary);
+		color: var(--header--color);
 	}
 
 	/* Within Overlay */
