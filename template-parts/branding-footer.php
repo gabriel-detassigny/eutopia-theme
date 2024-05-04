@@ -10,7 +10,7 @@ use Eutopia_Theme\Components\SVG;
 ?>
 
 <div class="site-footer__branding">
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-footer-link" rel="home" aria-label="homepage">
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-footer-link" rel="home" aria-label="<?php esc_attr_e( 'Homepage', 'eutopia-theme' ); ?>">
 		<?php
 		SVG::get_instance()->render_svg(
 			'assets/svg/logo-baseline.svg',

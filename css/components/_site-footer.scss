@@ -40,23 +40,32 @@
 .site-footer__branding {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: var(--spacing--m);
 	font-weight: var(--font-weight--medium);
 
 	a {
 		color: var(--color--foreground);
 		text-decoration: none;
+
+		svg {
+			margin-inline-end: -42px;
+		}
 	}
 }
 
 .site-footer__social {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@include break-desktop {
+		align-items: flex-end;
+	}
+
 	&-header {
 		font-weight: var(--font-weight--bold);
 		margin-block-end: var(--spacing--m);
-
-		@include break-desktop {
-			text-align: end;
-		}
 	}
 
 	.menu {
@@ -84,6 +93,7 @@
 	display: grid;
 	inline-size: 100%;
 	margin-block-start: var(--spacing--xl);
+	text-align: center;
 
 	@include break-tablet {
 		margin-block-start: 0;
@@ -92,6 +102,7 @@
 
 	@include break-desktop {
 		grid-area: navigation;
+		text-align: revert;
 	}
 }
 
