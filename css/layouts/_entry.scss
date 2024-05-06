@@ -7,3 +7,10 @@
 	text-align: center;
 	color: var(--color--primary);
 }
+
+.entry-content {
+	h2[id] {
+		// Ensure anchor links are shown below the header when clicked.
+		padding-block-start: var(--site-header--height);
+	}
+}
