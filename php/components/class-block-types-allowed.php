@@ -42,6 +42,7 @@ class Block_Types_Allowed extends Component {
 		'core/quote'           => 'core/quote',
 		'core/reusable-blocks' => 'core/reusable-blocks',
 		'core/separator'       => 'core/separator',
+		'core/shortcode'       => 'core/shortcode',
 		'core/video'           => 'core/video',
 		'core/post-title'      => 'core/post-title',
 		'core/legacy-widget'   => 'core/legacy-widget',
