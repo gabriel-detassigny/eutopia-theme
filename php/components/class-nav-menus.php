@@ -32,6 +32,7 @@ class Nav_Menus extends Component {
 		add_action( 'after_setup_theme', [ $this, 'action_register_nav_menus' ] );
 		add_filter( 'walker_nav_menu_start_el', [ $this, 'filter_primary_nav_menu_dropdown_symbol' ], 10, 4 );
 		add_filter( 'nav_menu_item_args', [ $this, 'filter_nav_menu_social_symbol' ], 10, 2 );
+		add_filter( 'nav_menu_link_attributes', [ $this, 'filter_mobile_nav_menu_close_modal' ], 10, 3 );
 	}
 
 	/**
@@ -245,5 +246,27 @@ class Nav_Menus extends Component {
 	 */
 	public function get_footer_social_menu_name(): string {
 		return wp_get_nav_menu_name( static::SOCIAL_NAV_MENU_SLUG );
+	}
+
+	/**
+	 * Adds the `data-dismiss` attribute to close the mobile nav menu modal.
+	 *
+	 * @param array   $atts The HTML attributes applied to the menu item's `<a>` element.
+	 * @param WP_Post $item The current menu item.
+	 * @param object  $args An object of wp_nav_menu() arguments.
+	 * @return array Modified HTML attributes.
+	 */
+	public function filter_mobile_nav_menu_close_modal( array $atts, WP_Post $item, object $args ): array {
+		if ( empty( $args->theme_location ) || static::PRIMARY_NAV_MENU_SLUG !== $args->theme_location ) {
+			return $atts;
+		}
+
+		if ( ! str_contains( $args->menu_class ?? '', 'menu--slidein' ) ) {
+			return $atts;
+		}
+
+		$atts['data-dismiss'] = 'modal';
+
+		return $atts;
 	}
 }

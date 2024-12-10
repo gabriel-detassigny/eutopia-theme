@@ -14,5 +14,12 @@ if ( ! Nav_Menus::get_instance()?->is_primary_nav_menu_active() ) {
 ?>
 
 <nav id="navigation-slidein" class="navigation-slidein" aria-label="<?php esc_attr_e( 'Main menu', 'eutopia-theme' ); ?>">
-	<?php Nav_Menus::get_instance()?->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
+	<?php
+	Nav_Menus::get_instance()?->display_primary_nav_menu(
+		[
+			'menu_id'    => 'primary-menu',
+			'menu_class' => 'menu menu--slidein',
+		]
+	);
+	?>
 </nav><!-- #site-navigation -->
