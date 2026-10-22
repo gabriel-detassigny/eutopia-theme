@@ -7,8 +7,6 @@
 
 namespace Eutopia_Theme\Components;
 
-use Eutopia_Theme\Theme_Option;
-
 /**
  * Component base.
  */

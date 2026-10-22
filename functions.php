@@ -54,7 +54,6 @@ function gdt_theme() {
 	if ( ! $theme ) {
 		$theme = new Theme(
 			[
-				new Eutopia_Theme\Components\ACF_Block_Registry(),
 				new Eutopia_Theme\Components\Accessibility(),
 				new Eutopia_Theme\Components\Block_Patterns(),
 				new Eutopia_Theme\Components\Block_Registry(),
@@ -87,18 +86,5 @@ function gdt_theme() {
 }
 
 gdt_theme()->init();
-
-if ( ! function_exists( 'wp_body_open' ) ) {
-	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 *
-	 * @return void
-	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
-	}
-}
 
 unset( $theme_version );

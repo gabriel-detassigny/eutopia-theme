@@ -71,10 +71,3 @@ $is-block-editor: false !default;
 @import "layouts/grid-entry";
 @import "layouts/list-entry";
 @import "layouts/search-page";
-@import "layouts/entry-carousel";
-
-/**
-* Vendors
-*/
-@import "swiper/scss";
-@import "swiper/scss/pagination";

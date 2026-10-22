@@ -1,7 +1,3 @@
 .post-navigation {
 	@include container;
-
-	&.pagination--infinite .nav-next {
-		display: none;
-	}
 }
