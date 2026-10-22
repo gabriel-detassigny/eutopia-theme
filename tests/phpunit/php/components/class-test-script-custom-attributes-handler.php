@@ -34,6 +34,20 @@ class Test_Script_Custom_Attributes_Handler extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Tear down.
+	 *
+	 * Deregister the test script so its data doesn't leak into other data sets.
+	 *
+	 * @inheritdoc
+	 */
+	public function tear_down() {
+		wp_dequeue_script( 'main' );
+		wp_deregister_script( 'main' );
+
+		parent::tear_down();
+	}
+
+	/**
 	 * Add in the hooks and filters which would have been included in the theme.
 	 *
 	 * @return void
@@ -95,59 +109,59 @@ class Test_Script_Custom_Attributes_Handler extends \WP_UnitTestCase {
 		return [
 			'no_custom_attribute'              => [
 				'set_up'   => '__return_null',
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js'></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0'></script>",
 			],
 			'set_defer'                        => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'defer', true );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' defer></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' defer></script>",
 			],
 			'set_async'                        => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'async', true );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' async></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' async></script>",
 			],
 			'set_async_and_defer'              => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'defer', true );
 					wp_script_add_data( 'main', 'async', true );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' defer></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' defer></script>",
 			],
 			'set_type_module'                  => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'type', 'module' );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' type='module'></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' type='module'></script>",
 			],
 			'set_nomodule'                     => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'nomodule', true );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' nomodule></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' nomodule></script>",
 			],
 			'set_nomodule_and_type_module'     => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'nomodule', true );
 					wp_script_add_data( 'main', 'type', 'module' );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' type='module'></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' type='module'></script>",
 			],
 			'set_defer_nomodule'               => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'defer', true );
 					wp_script_add_data( 'main', 'nomodule', true );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' defer nomodule></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' defer nomodule></script>",
 			],
 			'set_async_nomodule'               => [
 				'set_up'   => static function () {
 					wp_script_add_data( 'main', 'async', true );
 					wp_script_add_data( 'main', 'nomodule', true );
 				},
-				'expected' => "<script src='https://example.com/main.js?ver=1.0.0' id='main-js' async nomodule></script>",
+				'expected' => "<script id='main-js' src='https://example.com/main.js?ver=1.0.0' async nomodule></script>",
 			],
 			'handle_attributes_set_via_filter' => [
 				'set_up'   => static function () {
@@ -165,7 +179,7 @@ class Test_Script_Custom_Attributes_Handler extends \WP_UnitTestCase {
 					);
 					wp_script_add_data( 'main', 'defer', true );
 				},
-				'expected' => "<script type='module' src='https://example.com/main.js?ver=1.0.0' id='main-js' defer></script>",
+				'expected' => "<script type='module' id='main-js' src='https://example.com/main.js?ver=1.0.0' defer></script>",
 			],
 			'filter_only_main_script_tag'      => [
 				'set_up'   => static function () {
@@ -176,10 +190,12 @@ class Test_Script_Custom_Attributes_Handler extends \WP_UnitTestCase {
 				'expected' => "
 					<script id=\"main-js-before\">\n
 					var foo=\"bar\";\n
+					//# sourceURL=main-js-before\n
 					</script>\n
-					<script src='https://example.com/main.js?ver=1.0.0' id='main-js' defer></script>
+					<script id='main-js' src='https://example.com/main.js?ver=1.0.0' defer></script>
 					<script id=\"main-js-after\">
 					var baz=\"bar\";
+					//# sourceURL=main-js-after
 					</script>
 				",
 			],
@@ -208,8 +224,6 @@ class Test_Script_Custom_Attributes_Handler extends \WP_UnitTestCase {
 			$this->normalize_script_tag( $expected ),
 			$this->normalize_script_tag( ob_get_clean() ),
 		);
-
-		wp_deregister_script( 'main' );
 	}
 
 	/**

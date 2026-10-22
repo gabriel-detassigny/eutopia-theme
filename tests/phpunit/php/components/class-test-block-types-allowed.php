@@ -52,7 +52,7 @@ class Test_Block_Types_Allowed extends \WP_UnitTestCase {
 		$allowed_core_blocks = $this->instance->get_allowed_core_block_types();
 
 		$this->assertIsArray( $allowed_core_blocks );
-		$this->assertNotContains( 'core/columns', $allowed_core_blocks );
+		$this->assertNotContains( 'core/table', $allowed_core_blocks );
 		$this->assertContains( 'core/paragraph', $allowed_core_blocks );
 
 		add_filter(
