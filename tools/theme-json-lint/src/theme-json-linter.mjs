@@ -30,9 +30,19 @@ export function validateStylesheetVariables( data ) {
 }
 
 /**
+ * Called for every leaf property found while walking an object.
+ *
+ * @callback Walker
+ * @param {{key: string, prop: unknown}} entry The property key and value
+ * @param {string[]}                     path  Path to the property
+ * @param {Array|Object}                 acc   The accumulator
+ * @return {Array|Object} The updated accumulator
+ */
+
+/**
  * Recursively traverses an object's properties, reducing to an accumulator.
  *
- * @param {Function}     walker      The walker function
+ * @param {Walker}       walker      The walker function
  * @param {Object}       data        The object to traverse
  * @param {Array}        path        Array containing the intermediate path
  * @param {Array|Object} accumulator Initial accumulator data

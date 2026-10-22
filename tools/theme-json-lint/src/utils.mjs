@@ -36,7 +36,7 @@ export function ansiColor( str, color = 'reset' ) {
  * Reads a JSON file from the file system.
  *
  * @param {string} file The JSON file to read
- * @return {*} The parsed JSON data
+ * @return {Promise<Object>} The parsed JSON data
  */
 export async function readJSON( file ) {
 	return JSON.parse( await readFile( file, 'utf8' ) );
