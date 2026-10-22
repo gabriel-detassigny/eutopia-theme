@@ -17,7 +17,7 @@ class Block_Patterns extends Component {
 	/**
 	 * Collection of custom block pattern category meta.
 	 *
-	 * @var array<string,array{label?: string}>>
+	 * @var array<string,array{label?: string}>
 	 */
 	protected $categories = [];
 
@@ -34,7 +34,7 @@ class Block_Patterns extends Component {
 		 */
 		$this->categories = [
 			'gdt' => [
-				'label' => __( 'Gabriel de Tassigny', 'eutopia-theme' ),
+				'label' => __( 'Eutopia', 'eutopia-theme' ),
 			],
 		];
 

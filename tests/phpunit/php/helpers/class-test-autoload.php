@@ -2,7 +2,7 @@
 /**
  * Tests the autoloader.
  *
- * @package Gabriel de TassignyBlocks
+ * @package Eutopia_Theme
  */
 
 namespace Eutopia_Theme\Helpers;

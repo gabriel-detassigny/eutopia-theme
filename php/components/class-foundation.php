@@ -2,7 +2,7 @@
 /**
  * Eutopia_Theme\Components\Foundation class
  *
- * @package eutopia_theme
+ * @package Eutopia_Theme
  */
 
 namespace Eutopia_Theme\Components;

@@ -8,7 +8,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/#register_block_pattern
  *
- * @package eutopia_theme
+ * @package Eutopia_Theme
  */
 
 ?>

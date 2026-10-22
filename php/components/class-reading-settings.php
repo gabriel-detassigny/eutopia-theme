@@ -63,7 +63,7 @@ class Reading_Settings extends Component {
 	 * Settings callback
 	 */
 	public function page_for_404_callback() {
-		$resources_page_id = get_option( 'page_for_404' );
+		$page_for_404_id = get_option( 'page_for_404' );
 
 		// Both draft and published pages are eligible for a 404-page template.
 		$items = get_posts(
@@ -76,16 +76,16 @@ class Reading_Settings extends Component {
 			]
 		);
 
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '<select id="page_for_404" name="page_for_404">';
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.WP.CapitalPDangit.Misspelled, WordPress.WP.I18n.TextDomainMismatch
-		echo '<option value="0">' . __( '— Select —', 'eutopia-theme' ) . '</option>';
+		echo '<option value="0">' . esc_html__( '— Select —', 'eutopia-theme' ) . '</option>';
 
 		foreach ( $items as $item ) {
-			$selected = ( $resources_page_id == $item->ID ) ? 'selected="selected"' : '';
-
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo '<option value="' . $item->ID . '" ' . $selected . '>' . $item->post_title . '</option>';
+			printf(
+				'<option value="%d" %s>%s</option>',
+				(int) $item->ID,
+				selected( (int) $page_for_404_id, $item->ID, false ),
+				esc_html( $item->post_title )
+			);
 		}
 
 		echo '</select>';
@@ -172,7 +172,7 @@ class Reading_Settings extends Component {
 				// Set 404 status and display 404 template instead of 404 page.
 				$wp_query->set_404();
 				status_header( 404 );
-				get_template_part( 404 );
+				get_template_part( '404' );
 				exit;
 			}
 		}

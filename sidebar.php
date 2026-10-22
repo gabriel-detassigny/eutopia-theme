@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package eutopia_theme
+ * @package Eutopia_Theme
  */
 
 namespace Eutopia_Theme;

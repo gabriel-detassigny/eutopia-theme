@@ -1,6 +1,6 @@
 <?php
 /**
- * Eutopia_Theme\Components\Blocks class
+ * Eutopia_Theme\Components\Block_Registry class
  *
  * @package Eutopia_Theme
  */
@@ -11,9 +11,9 @@ namespace Eutopia_Theme\Components;
 use Eutopia_Theme\Helpers\Utils;
 
 /**
- * Class for registering custom block patterns.
+ * Class for registering custom blocks from the `blocks/` directory.
  *
- * @link https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/
+ * @link https://developer.wordpress.org/block-editor/getting-started/fundamentals/registration-of-a-block/
  */
 class Block_Registry extends Component {
 
@@ -206,7 +206,7 @@ class Block_Registry extends Component {
 			[
 				[
 					'slug'  => 'gabriel-detassigny-blocks',
-					'title' => __( 'Gabriel de Tassigny Blocks', 'eutopia-theme' ),
+					'title' => __( 'Eutopia Blocks', 'eutopia-theme' ),
 				],
 			]
 		);

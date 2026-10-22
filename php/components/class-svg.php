@@ -36,7 +36,7 @@ class SVG extends Component {
 	/**
 	 * List of resolved paths by relative request path.
 	 *
-	 * @var string[string]
+	 * @var array<string,string>
 	 */
 	private array $resolved_paths = [];
 

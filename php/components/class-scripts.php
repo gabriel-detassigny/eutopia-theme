@@ -10,7 +10,7 @@ namespace Eutopia_Theme\Components;
 use RuntimeException;
 
 /**
- * Class for managing stylesheets.
+ * Class for managing scripts.
  */
 class Scripts extends Component {
 
@@ -40,7 +40,7 @@ class Scripts extends Component {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'configure_core_scripts' ] );
-		add_action( 'wp_head', [ $this, 'remove_no_js_class_from_html' ], defined( 'PHP_INT_MIN' ) ? PHP_INT_MIN : ~PHP_INT_MAX ); // phpcs:ignore PHPCompatibility.Constants.NewConstants.php_int_minFound
+		add_action( 'wp_head', [ $this, 'remove_no_js_class_from_html' ], PHP_INT_MIN );
 		add_action( 'init', [ $this, 'disable_legacy_emoji_support' ] );
 	}
 
@@ -70,9 +70,7 @@ class Scripts extends Component {
 	}
 
 	/**
-	 * Registers or enqueues stylesheets.
-	 *
-	 * Stylesheets that are global are enqueued. All other stylesheets are only registered, to be enqueued later.
+	 * Enqueues the main theme script, and the CSS hot reload script during development.
 	 *
 	 * @throws \RuntimeException Throws if assets aren't built.
 	 *
