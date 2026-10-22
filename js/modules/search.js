@@ -44,7 +44,7 @@ export const Search = {
 				self.pageSubmit.disabled = true;
 				self.pageClear.disabled = true;
 			}
-		}, );
+		} );
 	},
 
 	/**

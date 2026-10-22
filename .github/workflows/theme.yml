@@ -1,51 +1,27 @@
 name: Theme
 
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
 
   lint:
-    name: Lint and Build
-    runs-on: ubuntu-22.04
+    name: Lint, Build and Test
+    runs-on: ubuntu-latest
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v4
-        with:
-          # We set the node cache to `node_modules` in the current folder
-          # Add the extra node_modules paths from secondary npm build processes
-          # that might exist in the project in other folders.
-          # example of how the update would look:
-          # path:  |
-          #   node_modules
-          #   subfeature/node_modules
-          path: |
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
       - name: Install NPM dependencies
-        # We are checking for the root node_modules folder to confirm the cache was found.
-        # The npm clean install deletes the node_modules folder and installs a fresh copy,
-        # therefore we're skipping the command when the cache was hit.
-        # Important: keep the list of node_modules folders in sync with the cache path above.
-        run: |
-          if [ -d "node_modules" ]; then
-            echo "Node modules cache hit"
-          else
-            echo "Node modules cache miss"
-            npm ci --cache .npm --prefer-offline --no-audit
-          fi
+        run: npm ci --no-audit --no-fund
 
       - name: Setup PHP and Composer
         uses: shivammathur/setup-php@v2
@@ -55,10 +31,10 @@ jobs:
 
       - name: Get Composer cache directory
         id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
@@ -70,11 +46,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Start the Docker testing environment
-        run: npm run env start
-
       - name: Build
         run: npm run build
+
+      - name: Start the Docker testing environment
+        run: npm run env start
 
       - name: Test
         run: npm run test

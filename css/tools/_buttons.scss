@@ -11,7 +11,7 @@
 	padding-inline: var(--pad-inline, var(--spacing--m));
 	border: 1px solid var(--border, var(--color--primary));
 	border-radius: var(--border-radius--m);
-	word-break: break-word;
+	overflow-wrap: anywhere;
 	text-decoration: none;
 	cursor: pointer;
 	transition: $transition-color, $transition-background;

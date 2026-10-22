@@ -6,7 +6,7 @@ $blocks-block__margin: 0.5em;
 	display: inline-block;
 	text-align: center;
 	border-radius: 0; // Remove default radius added inside the editor
-	word-break: break-word;
+	overflow-wrap: anywhere;
 	cursor: pointer;
 	transition: color $transition-color, background-color $transition-background;
 

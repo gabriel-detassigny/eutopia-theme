@@ -1,17 +1,16 @@
 parameters:
   level: 3
-  checkMissingIterableValueType: false
   reportUnmatchedIgnoredErrors: false
   paths:
     - .
   excludePaths:
     analyseAndScan:
       - tests/
-      - node_modules/
+      - node_modules/ (?)
     analyse:
-      - vendor/
-      - tools/wordpress/
-      - tools/wp-content/
+      - vendor/ (?)
+      - tools/wordpress/ (?)
+      - tools/wp-content/ (?)
   stubFiles:
     - tools/phpstan/stubs.php
   dynamicConstantNames:

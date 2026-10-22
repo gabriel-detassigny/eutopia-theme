@@ -22,6 +22,6 @@
 
 .grid {
 	display: grid;
-	grid-gap: var(--grid-gap, var(--layout--block-gap));
+	gap: var(--grid-gap, var(--layout--block-gap));
 	grid-template-columns: var(--template-columns, repeat(auto-fit, minmax(var(--grid-min, #{rem(250)}), 1fr)));
 }

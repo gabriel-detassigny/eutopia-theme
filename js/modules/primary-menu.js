@@ -30,7 +30,7 @@ export const PrimaryMenu = {
 	// named event listeners that can easily be removed later.
 	bindMethod( name ) {
 		return this[ '_' + name + '_' ] || Object.defineProperty(
-			this, '_' + name + '_', { value: this[ name ].bind( this ) }
+			this, '_' + name + '_', { value: this[ name ].bind( this ) },
 		)[ '_' + name + '_' ];
 	},
 

@@ -9,7 +9,7 @@
  * External dependencies
  */
 const path = require( 'path' );
-const glob = require( 'glob' );
+const { globSync } = require( 'glob' );
 
 /**
  * WordPress dependencies
@@ -61,7 +61,7 @@ if ( defaultConfig?.module?.rules?.length > 0 ) {
  * @return {Object} Entry points.
  */
 function getEntryPathsFromGlob( pattern, options ) {
-	return glob.sync( pattern, options ).reduce(
+	return globSync( pattern, options ).reduce(
 		( entries, filename ) => {
 			const file = path.parse( filename );
 			return {
@@ -72,7 +72,7 @@ function getEntryPathsFromGlob( pattern, options ) {
 				[ path.join( file.dir, file.name ) ]: `./${ path.join( file.dir, file.base ) }`,
 			};
 		},
-		{}
+		{},
 	);
 }
 

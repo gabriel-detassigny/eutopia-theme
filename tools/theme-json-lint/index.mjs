@@ -34,7 +34,7 @@ let data = null;
 
 try {
 	data = await readJSON( themeJsonPath );
-} catch ( _ ) {
+} catch {
 	/* eslint-disable no-console */
 	console.log( `${ ansiColor( '✖', 'red' ) } ${ ansiColor( 'There were errors parsing the `theme.json` file', 'red' ) }` );
 	process.exit( 1 );
@@ -48,7 +48,7 @@ const errors = Object.values( schemas ).reduce( ( acc, schema ) => {
 }, [] ).map( ( err ) => {
 	return { ...err, message: err.message.replace( / NOT /g, ' not ' ) };
 } ).concat(
-	validateStylesheetVariables( data )
+	validateStylesheetVariables( data ),
 ).map( ( err ) => {
 	switch ( err.keyword ) {
 		case 'additionalProperties':

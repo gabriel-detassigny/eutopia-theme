@@ -101,7 +101,7 @@
 
 		// Stops long URLs from breaking out of the no preview available screen
 		.components-placeholder__error {
-			word-break: break-word;
+			overflow-wrap: anywhere;
 		}
 
 		.components-placeholder__learn-more {

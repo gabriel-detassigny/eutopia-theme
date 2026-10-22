@@ -111,7 +111,7 @@ const createWpBlock = ( plop ) => {
 							answers[ 'block-parent' ]
 								? plop.renderString( '- Parent block: *{{ block-parent }}*', answers )
 								: '',
-					}
+					},
 				),
 			},
 			{
@@ -138,7 +138,7 @@ const createWpBlock = ( plop ) => {
 			},
 			( answers ) => plop.renderString(
 				`Block "{{ block-title }}" was generated in the "${ blocksDirExists ? blocksDir + '/' : '' }{{ block-slug }}" directory. Please build the JS assets before using it.`,
-				answers
+				answers,
 			),
 		],
 	};

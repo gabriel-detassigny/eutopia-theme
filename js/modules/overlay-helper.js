@@ -29,7 +29,7 @@ export const OverlayHelper = {
 		[].forEach.call( this.overlayTriggers,
 			function( e ) {
 				e.addEventListener( 'click', OverlayHelper.openOverlay, false );
-			}
+			},
 		);
 
 		this.onBackdropClick();
@@ -88,7 +88,7 @@ export const OverlayHelper = {
 				popup.classList.remove( 'is-overlaid' );
 				// Set back the aria-expanded on the trigger.
 				document.querySelector( '[data-target="#' + popup.id + '"]' ).setAttribute( 'aria-expanded', 'false' );
-			}
+			},
 		);
 		document.body.classList.remove( 'is-not-scrollable' );
 		document.body.classList.remove( 'no-backdrop' );
