@@ -54,3 +54,53 @@ jobs:
 
       - name: Test
         run: npm run test
+
+  release:
+    name: Release theme zip
+    needs: lint
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup PHP and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: |
+          npm ci --no-audit --no-fund
+          composer install --no-progress
+
+      - name: Build
+        run: npm run build
+
+      - name: Install production Composer dependencies
+        run: composer install --no-dev --no-progress --optimize-autoloader
+
+      - name: Set theme version from tag
+        run: |
+          sed -i "s/^Version: .*/Version: ${GITHUB_REF_NAME#v}/" style.css
+
+      - name: Package theme
+        run: |
+          mkdir -p dist/eutopia-theme
+          rsync -a --exclude-from=.distignore ./ dist/eutopia-theme/
+          cd dist && zip -qr "eutopia-theme-${GITHUB_REF_NAME}.zip" eutopia-theme
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "dist/eutopia-theme-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --generate-notes

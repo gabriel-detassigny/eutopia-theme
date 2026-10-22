@@ -5,6 +5,7 @@ tools/wordpress
 tools/wp-content
 languages
 build
+dist
 .phpunit.result.cache
 
 # Supported local overrides.

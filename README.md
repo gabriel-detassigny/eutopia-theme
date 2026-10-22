@@ -2,7 +2,7 @@
 
 ![Lint and Test](https://github.com/gabriel-detassigny/eutopia-theme/actions/workflows/theme.yml/badge.svg)
 
-A classic (PHP template) WordPress theme with block editor support, built for a personal site.
+A classic (PHP template) WordPress theme with block editor support, built for the [Eutopia restaurant](https://www.eutopia-restaurant.fr) website.
 
 Highlights:
 
@@ -64,9 +64,18 @@ tests/           PHPUnit tests
 tools/           Dev tooling (scaffolding, theme.json linter, git hooks)
 ```
 
-## Deployment
+## Releasing
 
-Run `npm run build`, then upload the theme folder to `wp-content/themes/eutopia-theme`. `node_modules/`, `tests/`, `tools/` and the dev-only files aren't needed on the server. `vendor/` is: install it with `composer install --no-dev`.
+Push a version tag to build a release:
+
+```sh
+git tag v1.1.0
+git push origin v1.1.0
+```
+
+Once CI passes for the tag, the `release` job builds the assets, installs production Composer dependencies, sets the theme version from the tag and attaches `eutopia-theme-v1.1.0.zip` to a new [GitHub release](https://github.com/gabriel-detassigny/eutopia-theme/releases). If CI fails, no release is made.
+
+To deploy, download the zip and upload it under **Appearance → Themes → Add New Theme → Upload Theme** in WP admin, then choose **Replace active with uploaded**. Files left out of the zip are listed in `.distignore`.
 
 ## License
 
